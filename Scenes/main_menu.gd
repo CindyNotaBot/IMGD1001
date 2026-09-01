@@ -10,14 +10,14 @@ func _ready():
 func _process(_delta: float) -> void:
 	pass
 
-
+# When start button is pressed screen is changed to the game screen
 func _on_start_game_pressed():
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
-
+# When version notes button is pressed screen is changed to version notes screen
 func _on_version_notes_pressed():
-	print("Version notes pressed")
+	get_tree().change_scene_to_file("")
 
-
+# When credits button is pressed screen is changed to credits screen
 func _on_credits_pressed():
-	print("Credits pressed")
+	get_tree().change_scene_to_file("")
