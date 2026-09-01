@@ -18,8 +18,11 @@ shadow_color = Color(0, 0, 0, 0.22352941)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
+bg_color = Color(0.4140658, 0.4140658, 0.4140657, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
-bg_color = Color(0.7560873, 0.75608736, 0.7560872, 1)
+bg_color = Color(0.79836667, 0.79836625, 0.7983663, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -27,9 +30,6 @@ corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.22352941)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
-bg_color = Color(0.5589535, 0.5589535, 0.5589534, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28flt"]
 
@@ -75,8 +75,8 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hujs1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
 text = "Start game"
 
@@ -89,6 +89,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hujs1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
 text = "Version Notes"
@@ -102,6 +103,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hujs1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
 text = "Credits"
