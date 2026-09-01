@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://c2kyuqeq6gawl"]
 
+[ext_resource type="FontFile" uid="uid://c0o58gyy3m3h" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_28flt"]
+[ext_resource type="Script" uid="uid://c4s17cwqmj7qv" path="res://Scenes/main_menu.gd" id="1_48xlc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tt8o"]
+bg_color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+corner_detail = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hujs1"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
@@ -10,6 +17,21 @@ shadow_color = Color(0, 0, 0, 0.22352941)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
+bg_color = Color(0.7560873, 0.75608736, 0.7560872, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.22352941)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
+bg_color = Color(0.5589535, 0.5589535, 0.5589534, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_28flt"]
+
 [node name="MainMenu" type="Control" unique_id=1455904599]
 layout_mode = 3
 anchors_preset = 15
@@ -17,21 +39,93 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_48xlc")
 
-[node name="Button" type="Button" parent="." unique_id=27043286]
+[node name="Panel" type="Panel" parent="." unique_id=1508538494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0tt8o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=322176249]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -165.5
-offset_top = -76.75
-offset_right = 165.5
-offset_bottom = 76.75
+offset_left = -259.0
+offset_top = -69.0
+offset_right = 260.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="StartGameButton" type="Button" parent="VBoxContainer" unique_id=27043286]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.000113828486, 0.000113827875, 0.000113828006, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hujs1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
 text = "Start game"
+
+[node name="VersionNotesButton" type="Button" parent="VBoxContainer" unique_id=1372988440]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.000113828486, 0.000113827875, 0.000113828006, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hujs1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
+text = "Version Notes"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=127962324]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.000113828486, 0.000113827875, 0.000113828006, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hujs1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_28flt")
+text = "Credits"
+
+[node name="Label" type="Label" parent="." unique_id=754012855]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.5
+offset_top = -203.0
+offset_right = 322.5
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 40
+text = "Metroidvania Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/VersionNotesButton" to="." method="_on_version_notes_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_pressed"]
