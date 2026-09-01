@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://c0o58gyy3m3h" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_28flt"]
 [ext_resource type="Script" uid="uid://c4s17cwqmj7qv" path="res://Scenes/main_menu.gd" id="1_48xlc"]
+[ext_resource type="AudioStream" uid="uid://du3phaqveayg1" path="res://Assets/music/main_menu.mp3" id="3_1ehe0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tt8o"]
 bg_color = Color(0.13682577, 0.13682574, 0.13682571, 1)
@@ -125,6 +126,10 @@ theme_override_font_sizes/font_size = 40
 text = "Metroidvania Game"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MainMenuBackground" type="AudioStreamPlayer" parent="." unique_id=1009608693]
+stream = ExtResource("3_1ehe0")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/VersionNotesButton" to="." method="_on_version_notes_pressed"]
