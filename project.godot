@@ -11,16 +11,13 @@ config_version=5
 [application]
 
 config/name="Godot Tut IMGD"
-
-run/main_scene="uid://c2kyuqeq6gawl"
+run/main_scene="uid://n53l81ef8roe"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/use_filter=false
 boot_splash/image="uid://n53l81ef8roe"
 config/icon="res://icon.svg"
 boot_splash/minimum_display_time=3000
-h
-
-buses/default_bus_layout="uid://8kvpj7ki2wdb"
+hbuses/default_bus_layout="uid://8kvpj7ki2wdb"
 
 [input]
 
