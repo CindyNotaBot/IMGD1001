@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://gf8xkihk8cus"]
 
-[ext_resource type="Script" uid="uid://cbtwxsgi3w0hx" path="res://Scripts/credits.gd" id="1_ccovl"]
-[ext_resource type="FontFile" uid="uid://cvare1s2ji0p2" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_gryuy"]
-[ext_resource type="FontFile" uid="uid://djyy3tmd8phi6" path="res://Assets/fonts/PixelOperator8.ttf" id="2_ccovl"]
+[ext_resource type="Script" uid="uid://bbrniopsw0e6r" path="res://Scripts/credits.gd" id="1_ccovl"]
+[ext_resource type="FontFile" uid="uid://c0o58gyy3m3h" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_gryuy"]
+[ext_resource type="FontFile" uid="uid://gjo4iyr2nd07" path="res://Assets/fonts/PixelOperator8.ttf" id="2_ccovl"]
+[ext_resource type="AudioStream" uid="uid://du3phaqveayg1" path="res://Assets/music/main_menu.mp3" id="4_1bamb"]
 
 [node name="Credits" type="Control" unique_id=37567946]
 layout_mode = 3
@@ -177,3 +178,7 @@ theme_override_font_sizes/font_size = 20
 text = "WPI'S IMGD Class"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=842557505]
+stream = ExtResource("4_1bamb")
+autoplay = true
