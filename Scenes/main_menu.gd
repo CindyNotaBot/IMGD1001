@@ -16,7 +16,7 @@ func _on_start_game_pressed():
 
 # When version notes button is pressed screen is changed to version notes screen
 func _on_version_notes_pressed():
-	get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_file("res://Scenes/version_notes.tscn")
 
 # When credits button is pressed screen is changed to credits screen
 func _on_credits_pressed():
