@@ -11,13 +11,10 @@ func _ready():
 	credits_container.position.y = get_viewport_rect().size.y - 500
 
 func _process(delta):
-	if finished:
-		return
-	
 	credits_container.position.y -= scroll_speed * delta
 	
 	if credits_container.position.y + credits_container.size.y < 0:
-		finish_credits()
+		credits_container.position.y = get_viewport_rect().size.y - 500
 
 func finish_credits():
 	if not finished:
