@@ -5,6 +5,28 @@
 [ext_resource type="FontFile" uid="uid://gjo4iyr2nd07" path="res://Assets/fonts/PixelOperator8.ttf" id="2_ccovl"]
 [ext_resource type="AudioStream" uid="uid://du3phaqveayg1" path="res://Assets/music/main_menu.mp3" id="4_1bamb"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bamb"]
+bg_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.9098039, 0.8901961, 0.85490197, 1)
+shadow_color = Color(0, 0, 0, 0.22352941)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xelri"]
+bg_color = Color(0.4140658, 0.4140658, 0.4140657, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uah1q"]
+bg_color = Color(0.79836667, 0.79836625, 0.7983663, 1)
+shadow_color = Color(0, 0, 0, 0.22352941)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7emq5"]
+
 [node name="Credits" type="Control" unique_id=37567946]
 layout_mode = 3
 anchors_preset = 15
@@ -182,3 +204,25 @@ autowrap_mode = 2
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=842557505]
 stream = ExtResource("4_1bamb")
 autoplay = true
+
+[node name="BackButton" type="Button" parent="." unique_id=395103676]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 585.0
+offset_right = 129.0
+offset_bottom = 633.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8711415, 0.87114096, 0.8711413, 1)
+theme_override_colors/font_focus_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xelri")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uah1q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7emq5")
+text = "< BACK"
+flat = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

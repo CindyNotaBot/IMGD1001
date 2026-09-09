@@ -127,4 +127,4 @@ autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/VersionNotesButton" to="." method="_on_version_notes_pressed"]
-[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
