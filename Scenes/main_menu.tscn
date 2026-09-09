@@ -125,7 +125,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 8
 theme_override_fonts/font = ExtResource("1_28flt")
 theme_override_font_sizes/font_size = 40
-text = "Metroidvania Game"
+text = "Sha"
 horizontal_alignment = 1
 vertical_alignment = 1
 
