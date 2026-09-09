@@ -8,12 +8,11 @@ var scroll_speed: float = 100.0
 var finished: bool = false
 
 func _ready():
-	credits_container.position.y = get_viewport_rect().size.y
+	credits_container.position.y = get_viewport_rect().size.y - 500
 
 func _process(delta):
 	if finished:
 		return
-	
 	
 	credits_container.position.y -= scroll_speed * delta
 	
