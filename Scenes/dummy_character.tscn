@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dy6bwf21ujsuv"]
+
+[ext_resource type="Texture2D" uid="uid://bgutgsqwfs0rx" path="res://Assets/character_sprite/idle1 (1).png" id="1_j5v4y"]
+[ext_resource type="Texture2D" uid="uid://3woqy5jhhl7v" path="res://Assets/character_sprite/idle2.png" id="2_mhdur"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5v4y"]
+atlas = ExtResource("1_j5v4y")
+region = Rect2(42, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhdur"]
+atlas = ExtResource("2_mhdur")
+region = Rect2(84, 0, 42, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhdur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5v4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhdur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nca14"]
+radius = 8.5440035
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_36xl2"]
+
+[node name="originalCharacter" type="CharacterBody2D" unique_id=930523685]
+z_index = 5
+collision_layer = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=422566991]
+sprite_frames = SubResource("SpriteFrames_mhdur")
+autoplay = "default"
+frame_progress = 0.8536021
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856022563]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_nca14")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=893464896]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=949119415]
+position = Vector2(0, 71)
+shape = SubResource("WorldBoundaryShape2D_36xl2")

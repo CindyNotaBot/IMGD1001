@@ -5,11 +5,12 @@
 [ext_resource type="FontFile" uid="uid://c0o58gyy3m3h" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_h4fw4"]
 [ext_resource type="Texture2D" uid="uid://cdwqa6x55lgv7" path="res://Assets/sprites/world_tileset.png" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://bjba1gnyc2mwl" path="res://Scenes/platform.tscn" id="3_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://cdcw50yelbwju" path="res://Scenes/coin.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://c7fhyauh6ynmq" path="res://Scenes/coin.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dmy15v62mc1ib" path="res://Scenes/killzone.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://dc5kw50vnc0ac" path="res://Scenes/slime.tscn" id="6_i6g32"]
 [ext_resource type="FontFile" uid="uid://gjo4iyr2nd07" path="res://Assets/fonts/PixelOperator8.ttf" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://da056qqp76e53" path="res://Scenes/music.tscn" id="10_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://dy6bwf21ujsuv" path="res://Scenes/dummy_character.tscn" id="11_o5yvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_qxrlw")
@@ -306,3 +307,7 @@ all Coins!"
 horizontal_alignment = 1
 
 [node name="Music" parent="." unique_id=283391999 instance=ExtResource("10_ldgsr")]
+
+[node name="dummyCharacter" parent="." unique_id=930523685 instance=ExtResource("11_o5yvi")]
+z_index = 5
+position = Vector2(53, 14)
