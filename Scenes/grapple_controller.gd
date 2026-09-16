@@ -3,6 +3,7 @@ extends Node2D
 @export var rest_length = 2.0
 @export var stiffness = 25.0
 @export var damping= 2.0
+@export var max_grapple_time = 2.0
 
 @onready var player := get_parent()
 @onready var ray := $RayCast2D
@@ -10,6 +11,7 @@ extends Node2D
 
 var launched = false
 var target: Vector2 
+var grapple_time = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,11 +23,17 @@ func _process(delta):
 		retreat()
 		
 	if launched:
-		handle_grapple(delta)
+		grapple_time += delta
+		
+		if grapple_time >= max_grapple_time:
+			retreat()
+		else:
+			handle_grapple(delta)
 		
 func launch():
 	if ray.is_colliding(): 
 		launched = true
+		grapple_time = 0.0
 		target = ray.get_collision_point()
 		rope.show()
 	
