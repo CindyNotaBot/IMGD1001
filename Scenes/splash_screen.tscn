@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://n53l81ef8roe"]
+[gd_scene format=3 uid="uid://dr67ydckfhng0"]
 
-[ext_resource type="Script" uid="uid://bv6skgpvglwqd" path="res://Scenes/splash_screen.gd" id="1_h5jmx"]
+[ext_resource type="Script" path="res://Scenes/splash_screen.gd" id="1_h5jmx"]
 [ext_resource type="Texture2D" uid="uid://cmb2g1kfui2x" path="res://Assets/sprites/splash screen background.png" id="1_wwf30"]
 [ext_resource type="Texture2D" uid="uid://da5rlain2m7cl" path="res://Assets/sprites/splash screen wpi.png" id="2_h5jmx"]
 
