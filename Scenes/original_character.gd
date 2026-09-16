@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
-const BASE_SPEED = 100.0
+const BASE_SPEED = 100
 var SPEED = BASE_SPEED
 const JUMP_VELOCITY = -300.0
+
+const DASH_SPEED = 350.0
 var dash_limit = 1
+var is_dashing = false
+var dash_direction = 1.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gc := $GrappleController
@@ -28,12 +32,16 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 		
 	# Handle dash
-	if Input.is_action_just_pressed("dash"):
-		if dash_limit > 0:
-			$dashTimer.start()
-			SPEED *= 3
-			velocity.x = direction * SPEED
-			dash_limit = 0
+	if Input.is_action_just_pressed("dash") and dash_limit > 0:
+		is_dashing = true
+		dash_limit = 0
+		$dashTimer.start()
+		
+		# Saves the direction when the dash begins
+		if direction != 0:
+			dash_direction = direction
+		else:
+			dash_direction = -1.0 if animated_sprite.flip_h else 1.0
 	
 	# Play animations
 	if is_on_floor():
@@ -46,12 +54,15 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("jump")
 	
 	# Apply movement
-	if direction:
-		velocity.x = direction * SPEED
+	if is_dashing:
+		velocity.x = dash_direction * DASH_SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
 func _on_dash_timer_timeout() -> void:
-	SPEED = BASE_SPEED
+	is_dashing = false
