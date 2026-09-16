@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -300.0
 var dash_limit = 1
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var gc := $GrappleController
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -13,8 +14,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump") and (is_on_floor() || gc.launched):
+		velocity.y += JUMP_VELOCITY
+		gc.retreat()
 		
 	# Get the input directions: -1, 0, 1
 	var direction := Input.get_axis("move left", "move right")

@@ -76,4 +76,5 @@ target_position = Vector2(800, 0)
 
 [node name="Line2D" type="Line2D" parent="GrappleController" unique_id=851116293]
 points = PackedVector2Array(0, 0, 0, 0)
+width = 3.0
 default_color = Color(0, 0, 0, 1)

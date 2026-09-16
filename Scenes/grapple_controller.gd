@@ -1,7 +1,7 @@
 extends Node2D 
 
 @export var rest_length = 2.0
-@export var stiffness = 10.0
+@export var stiffness = 25.0
 @export var damping= 2.0
 
 @onready var player := get_parent()
@@ -17,7 +17,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("grapple"):
 		launch()
-	if Input.is_action_just_pressed("grapple"):
+	if Input.is_action_just_released("grapple"):
 		retreat()
 		
 	if launched:
@@ -46,9 +46,9 @@ func handle_grapple(delta):
 		var spring_force = target_direction * spring_force_magnitude
 		
 		var vel_dot = player.velocity.dot(target_direction)	
-		var damping = -damping * vel_dot * target_direction
+		var damping_force = -damping * vel_dot * target_direction
 		
-		force = spring_force + damping
+		force = spring_force + damping_force
 	
 	player.velocity += force * delta
 	update_rope()
