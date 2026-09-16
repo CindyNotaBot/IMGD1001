@@ -73,6 +73,7 @@ script = ExtResource("4_nca14")
 
 [node name="RayCast2D" type="RayCast2D" parent="GrappleController" unique_id=2055645887]
 target_position = Vector2(800, 0)
+collision_mask = 2
 
 [node name="Line2D" type="Line2D" parent="GrappleController" unique_id=851116293]
 points = PackedVector2Array(0, 0, 0, 0)
