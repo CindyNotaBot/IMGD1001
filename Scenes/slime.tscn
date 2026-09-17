@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1mto4dyg235q" path="res://Scripts/slime.gd" id="1_aiwxb"]
 [ext_resource type="Texture2D" uid="uid://fku28k0ibdv4" path="res://Assets/sprites/slime_green.png" id="1_swwnm"]
 [ext_resource type="PackedScene" uid="uid://dmy15v62mc1ib" path="res://Scenes/killzone.tscn" id="2_aiwxb"]
+[ext_resource type="Script" uid="uid://d00ix268dx73q" path="res://Scripts/SlimeHitBox.gd" id="4_paq7w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_paq7w"]
 atlas = ExtResource("1_swwnm")
@@ -35,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vblni")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 9.0
 }]
@@ -52,9 +53,10 @@ sprite_frames = SubResource("SpriteFrames_e388w")
 autoplay = "default"
 frame_progress = 0.025863087
 
-[node name="Killzone" parent="AnimatedSprite2D" unique_id=1394821798 instance=ExtResource("2_aiwxb")]
+[node name="SlimeHitbox" parent="AnimatedSprite2D" unique_id=1394821798 instance=ExtResource("2_aiwxb")]
+script = ExtResource("4_paq7w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone" unique_id=957365018]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/SlimeHitbox" unique_id=1715277384]
 position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_r4o34")
 

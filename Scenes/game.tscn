@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dmy15v62mc1ib" path="res://Scenes/killzone.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://dc5kw50vnc0ac" path="res://Scenes/slime.tscn" id="6_i6g32"]
 [ext_resource type="FontFile" uid="uid://gjo4iyr2nd07" path="res://Assets/fonts/PixelOperator8.ttf" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://dn78aiwietkvg" path="res://Scenes/fruit.tscn" id="7_rku1e"]
 [ext_resource type="PackedScene" uid="uid://da056qqp76e53" path="res://Scenes/music.tscn" id="10_ldgsr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
@@ -276,6 +277,10 @@ position = Vector2(887, -80)
 
 [node name="Coin6" parent="Coins" unique_id=1091095257 instance=ExtResource("4_3dryh")]
 position = Vector2(761, -148)
+
+[node name="Fruits" type="Node" parent="." unique_id=6761284]
+
+[node name="Fruit" parent="Fruits" unique_id=905617043 instance=ExtResource("7_rku1e")]
 
 [node name="Platforms" type="Node" parent="." unique_id=593539391]
 
