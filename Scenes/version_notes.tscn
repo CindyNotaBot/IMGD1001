@@ -97,6 +97,32 @@ The fourth is a WPI splash screen with the WPI Logo that appears when the game i
 
 We additionally added new sfx sound during the main menu called \"Skye Cuillin\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License
 http:/creativecommons.org/licenses/by/4.0/ 
+
+
+Sprint 2-September 9, 2026
+Below, are the listed things of what we change for the second version of the game: 
+
+The credits scene is now autoscroll and has an exit option for improved user experience. 
+
+The version notes scene is now autoscroll and has an exit option for improved user experience.
+
+The game now has a navigation menu.
+
+The WPI splash screen is now scaled for all screen types.
+
+
+Sprint 3- September 16, 2026
+Below, are the listed things of what we imrpoved for the second version of the game: 
+
+The game has updated the character asset to our own original character with animation.
+
+The game added a grappling hook weapon.
+
+The game allows players to dash.
+
+There game environment and map layout is changed. 
+
+
 "
 fit_content = true
 
