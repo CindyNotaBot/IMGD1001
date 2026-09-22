@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dc5kw50vnc0ac" path="res://Scenes/slime.tscn" id="6_i6g32"]
 [ext_resource type="AudioStream" uid="uid://du3phaqveayg1" path="res://Assets/music/main_menu.mp3" id="6_v158k"]
 [ext_resource type="FontFile" uid="uid://gjo4iyr2nd07" path="res://Assets/fonts/PixelOperator8.ttf" id="8_v158k"]
+[ext_resource type="PackedScene" uid="uid://bxg5fuhr0v3is" path="res://Scenes/common_enemy.tscn" id="9_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://da056qqp76e53" path="res://Scenes/music.tscn" id="10_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://dy6bwf21ujsuv" path="res://Scenes/dummy_character.tscn" id="11_o5yvi"]
 
@@ -398,3 +399,6 @@ text = "w and space bar for jump
 a for left, d for right, 
 e for dash,
 left click for grappling hook"
+
+[node name="common_enemy" parent="." unique_id=798265879 instance=ExtResource("9_h4fw4")]
+position = Vector2(0, -136)

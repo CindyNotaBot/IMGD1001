@@ -37,20 +37,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4o34"]
 size = Vector2(9, 12)
 
-[node name="Slime" type="Node2D" unique_id=192784159]
+[node name="enemy_boss" type="Node2D" unique_id=192784159]
 script = ExtResource("1_aiwxb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926790249]
 position = Vector2(1, 4)
 sprite_frames = SubResource("SpriteFrames_e388w")
 autoplay = "default"
-frame_progress = 0.57777965
+frame_progress = 0.77295464
 
 [node name="Killzone" parent="AnimatedSprite2D" unique_id=1394821798 instance=ExtResource("2_aiwxb")]
 
