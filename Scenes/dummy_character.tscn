@@ -91,7 +91,7 @@ default_color = Color(0, 0.078431375, 0, 1)
 
 [node name="sfx_jump" type="AudioStreamPlayer2D" parent="." unique_id=640525285]
 stream = ExtResource("5_36xl2")
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="sfx_dash" type="AudioStreamPlayer2D" parent="." unique_id=1520694438]
 stream = ExtResource("6_ilfkq")
@@ -99,10 +99,10 @@ volume_db = -3.0
 
 [node name="sfx_grapple" type="AudioStreamPlayer2D" parent="." unique_id=888623006]
 stream = ExtResource("7_dmore")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="sfx_death" type="AudioStreamPlayer2D" parent="." unique_id=1335795342]
 stream = ExtResource("8_6nwlu")
-volume_db = -10.0
+volume_db = -15.0
 
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
