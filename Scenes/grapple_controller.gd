@@ -8,6 +8,7 @@ extends Node2D
 @onready var player := get_parent()
 @onready var ray := $RayCast2D
 @onready var rope := $Line2D
+@onready var sfx_grapple: AudioStreamPlayer2D = $"../sfx_grapple"
 
 var launched = false
 var target: Vector2 
@@ -36,6 +37,7 @@ func launch():
 		grapple_time = 0.0
 		target = ray.get_collision_point()
 		rope.show()
+		sfx_grapple.play()
 	
 func retreat():
 	launched = false
