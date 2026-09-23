@@ -2445,7 +2445,7 @@ position = Vector2(106, 17)
 stream = ExtResource("6_v158k")
 
 [node name="dummyCharacter" parent="." unique_id=930523685 instance=ExtResource("11_o5yvi")]
-position = Vector2(3492, -2355)
+position = Vector2(288, 43)
 
 [node name="Camera2D" type="Camera2D" parent="dummyCharacter" unique_id=147813927]
 position = Vector2(0, -15)

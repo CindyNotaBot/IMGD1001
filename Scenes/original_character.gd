@@ -70,19 +70,19 @@ func _physics_process(delta: float) -> void:
 			dash_direction = -1.0 if animated_sprite.flip_h else 1.0
 	
 	# handle on wall
-	#if is_on_walls() == true:
-		#velocity = get_gravity() * new_delta
+	if is_on_walls() == true:
+		velocity = get_gravity() * new_delta
 		
 			
 	# handle wall jump right
-	#if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move left") and is_on_wall_right():
-		#velocity.y = -500
-		#velocity.x = -800
+	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move left") and is_on_wall_right():
+		velocity.y = -500
+		velocity.x = -800
 		
 	# hadle wall jump left
-	#if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move right") and is_on_wall_left():
-		#velocity.y = -500
-		#velocity.x = 800
+	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move right") and is_on_wall_left():
+		velocity.y = -500
+		velocity.x = 800
 		
 		
 	
