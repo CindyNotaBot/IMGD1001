@@ -35,7 +35,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e388w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -54,7 +54,7 @@ frame_progress = 0.77295464
 
 [node name="Killzone" parent="AnimatedSprite2D" unique_id=1394821798 instance=ExtResource("2_aiwxb")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone" unique_id=957365018]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone" unique_id=957365018]
 position = Vector2(1, -11)
 shape = SubResource("RectangleShape2D_r4o34")
 

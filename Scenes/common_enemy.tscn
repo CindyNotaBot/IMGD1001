@@ -19,7 +19,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="common_enemy" type="Node2D" unique_id=192784159]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hujs1"]
+
+[node name="common_enemy" type="Node2D" unique_id=192784159 groups=["enemy"]]
 script = ExtResource("1_te7vj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926790249]
@@ -37,3 +39,7 @@ position = Vector2(1, 12)
 target_position = Vector2(-10, -1)
 
 [node name="Killzone" parent="." unique_id=1394821798 instance=ExtResource("3_m47yv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1010810902]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_hujs1")

@@ -32,7 +32,13 @@ func _process(delta):
 			handle_grapple(delta)
 		
 func launch():
-	if ray.is_colliding(): 
+	if ray.is_colliding():
+		var collider = ray.get_collider()
+		
+		# Grabs and pulls enemy towards player
+		if collider.is_in_group("enemy"):
+			return
+
 		launched = true
 		grapple_time = 0.0
 		target = ray.get_collision_point()
