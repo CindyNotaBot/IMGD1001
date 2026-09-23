@@ -66,4 +66,22 @@ func handle_grapple(delta):
 	update_rope()
 
 func update_rope():
-	rope.set_point_position(1, to_local(target))
+	var end_point = to_local(target)
+	var segments = 12
+	
+	rope.clear_points()
+	
+	for i in range(segments + 1):
+		var t = float(i) / segments
+		
+		var point = Vector2.ZERO.lerp(end_point, t)
+
+		var direction = end_point.normalized()
+		var perpendicular = Vector2(-direction.y, direction.x)
+		
+		var wave = sin(t * PI * 3.0 + Time.get_ticks_msec() * 0.008)
+		var wave_strength = sin(t * PI) * 6.0
+		
+		point += perpendicular * wave * wave_strength
+		
+		rope.add_point(point)
