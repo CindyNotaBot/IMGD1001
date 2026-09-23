@@ -28,6 +28,8 @@ radius = 9.0
 [node name="chasing_enemy" type="CharacterBody2D" unique_id=2025810289]
 script = ExtResource("1_1f0kj")
 
+[node name="Killzone" parent="." unique_id=1394821798 instance=ExtResource("3_afpow")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=763961275]
 sprite_frames = SubResource("SpriteFrames_hujs1")
 animation = &"idle"
@@ -45,8 +47,6 @@ shape = SubResource("CircleShape2D_hujs1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1455212814]
 position = Vector2(-1, -8)
 shape = SubResource("CircleShape2D_ax2cb")
-
-[node name="Killzone" parent="." unique_id=1394821798 instance=ExtResource("3_afpow")]
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

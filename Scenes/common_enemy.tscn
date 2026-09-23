@@ -19,9 +19,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_te7vj"]
-radius = 9.0
-
 [node name="common_enemy" type="Node2D" unique_id=192784159]
 script = ExtResource("1_te7vj")
 
@@ -31,12 +28,6 @@ sprite_frames = SubResource("SpriteFrames_e388w")
 autoplay = "default"
 frame_progress = 0.77295464
 
-[node name="Killzone" parent="AnimatedSprite2D" unique_id=1394821798 instance=ExtResource("3_m47yv")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone" unique_id=957365018]
-position = Vector2(-2, 2)
-shape = SubResource("CircleShape2D_te7vj")
-
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=2037422445]
 position = Vector2(1, 12)
 target_position = Vector2(10, -1)
@@ -44,3 +35,5 @@ target_position = Vector2(10, -1)
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=760850295]
 position = Vector2(1, 12)
 target_position = Vector2(-10, -1)
+
+[node name="Killzone" parent="." unique_id=1394821798 instance=ExtResource("3_m47yv")]
