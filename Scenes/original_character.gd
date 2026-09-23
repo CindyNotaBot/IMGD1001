@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var gc := $GrappleController
+@onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
+
 const BASE_SPEED = 100
 var SPEED = BASE_SPEED
 const JUMP_VELOCITY = -300.0
@@ -8,9 +12,6 @@ const DASH_SPEED = 350.0
 var dash_limit = 1
 var is_dashing = false
 var dash_direction = 1.0
-
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var gc := $GrappleController
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and (is_on_floor() || gc.launched):
 		velocity.y += JUMP_VELOCITY
 		gc.retreat()
+		sfx_jump.play()
 		
 	# Get the input directions: -1, 0, 1
 	var direction := Input.get_axis("move left", "move right")

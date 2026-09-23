@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bpp0c41ihovmo" path="res://Scenes/original_character.gd" id="1_mhdur"]
 [ext_resource type="Texture2D" uid="uid://3woqy5jhhl7v" path="res://Assets/character_sprite/idle2.png" id="2_mhdur"]
 [ext_resource type="Script" uid="uid://ceegm00g5v0g2" path="res://Scenes/grapple_controller.gd" id="4_nca14"]
+[ext_resource type="AudioStream" uid="uid://dkerli060iq28" path="res://Assets/sounds/sfx_jump.mp3" id="5_36xl2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5v4y"]
 atlas = ExtResource("1_j5v4y")
@@ -84,5 +85,9 @@ points = PackedVector2Array(0, 0, 0, 0)
 width = 4.0
 width_curve = SubResource("Curve_nca14")
 default_color = Color(0, 0.078431375, 0, 1)
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="." unique_id=640525285]
+stream = ExtResource("5_36xl2")
+volume_db = -7.0
 
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
