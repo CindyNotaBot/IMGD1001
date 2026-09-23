@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var gc := $GrappleController
 @onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
 @onready var sfx_dash: AudioStreamPlayer2D = $sfx_dash
+@onready var attack_timer: Timer = $AttackTimer
 
 const BASE_SPEED = 100
 var SPEED = BASE_SPEED
@@ -13,6 +14,9 @@ const DASH_SPEED = 350.0
 var dash_limit = 1
 var is_dashing = false
 var dash_direction = 1.0
+
+var can_input = true
+var is_attacking = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,6 +28,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y += JUMP_VELOCITY
 		gc.retreat()
 		sfx_jump.play()
+		
+	# Handle attack
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		is_attacking= true
+		animated_sprite.play("attack")
+		attack_timer.start()
 		
 	# Get the input directions: -1, 0, 1
 	var direction := Input.get_axis("move left", "move right")
@@ -48,7 +58,10 @@ func _physics_process(delta: float) -> void:
 			dash_direction = -1.0 if animated_sprite.flip_h else 1.0
 	
 	# Play animations
-	if is_on_floor():
+	if is_attacking:
+		pass
+		
+	elif is_on_floor():
 		dash_limit = 1
 		if direction == 0:
 			animated_sprite.play("idle")
@@ -68,3 +81,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
+	
+
+
+func _on_attack_timer_timeout() -> void:
+	is_attacking = false
