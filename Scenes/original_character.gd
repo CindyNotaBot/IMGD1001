@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gc := $GrappleController
 @onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
+@onready var sfx_dash: AudioStreamPlayer2D = $sfx_dash
 
 const BASE_SPEED = 100
 var SPEED = BASE_SPEED
@@ -38,6 +39,7 @@ func _physics_process(delta: float) -> void:
 		is_dashing = true
 		dash_limit = 0
 		$dashTimer.start()
+		sfx_dash.play()
 		
 		# Saves the direction when the dash begins
 		if direction != 0:
