@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://gjo4iyr2nd07" path="res://Assets/fonts/PixelOperator8.ttf" id="8_v158k"]
 [ext_resource type="PackedScene" uid="uid://bxg5fuhr0v3is" path="res://Scenes/common_enemy.tscn" id="9_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://da056qqp76e53" path="res://Scenes/music.tscn" id="10_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://cd4hcqg84bk4j" path="res://Scenes/enemy.tscn" id="10_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://dy6bwf21ujsuv" path="res://Scenes/dummy_character.tscn" id="11_o5yvi"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i6g32"]
@@ -366,7 +367,7 @@ autowrap_mode = 2
 visible = false
 position = Vector2(26, 108)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=44159060]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone" unique_id=44159060]
 visible = false
 shape = SubResource("WorldBoundaryShape2D_i6g32")
 
@@ -380,7 +381,7 @@ stream = ExtResource("6_v158k")
 position = Vector2(48, 20)
 
 [node name="Camera2D" type="Camera2D" parent="dummyCharacter" unique_id=147813927]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="LevelMap" type="TileMap" parent="." unique_id=1209708791]
 tile_set = SubResource("TileSet_hujs1")
@@ -402,3 +403,6 @@ left click for grappling hook"
 
 [node name="common_enemy" parent="." unique_id=798265879 instance=ExtResource("9_h4fw4")]
 position = Vector2(0, -136)
+
+[node name="enemy" parent="." unique_id=2025810289 instance=ExtResource("10_o5yvi")]
+position = Vector2(210, -251)
