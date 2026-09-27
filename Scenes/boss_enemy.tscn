@@ -43,7 +43,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4o34"]
 size = Vector2(9, 12)
 
-[node name="Slime" type="Node2D" unique_id=192784159]
+[node name="boss_enemy" type="Node2D" unique_id=192784159]
 script = ExtResource("1_aiwxb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926790249]
