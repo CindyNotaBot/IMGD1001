@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 const BASE_SPEED = 200
 var SPEED = BASE_SPEED
+
 const JUMP_VELOCITY = -400.0
 const MAX_JUMPS = 1
 const MAX_LIVES = 3
 var jumpCounter = MAX_JUMPS
+
 const DASH_SPEED = 450.0
 var dash_limit = 1
 var is_dashing = false
@@ -65,22 +67,9 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		animated_sprite.flip_h = true
 		
-	# Handle dash
-	if Input.is_action_just_pressed("dash") and dash_limit > 0:
-		is_dashing = true
-		dash_limit = 0
-		$dashTimer.start()
-		
-		# Saves the direction when the dash begins
-		if direction != 0:
-			dash_direction = direction
-		else:
-			dash_direction = -1.0 if animated_sprite.flip_h else 1.0
-	
 	# handle on wall
 	if is_on_walls() == true:
 		velocity = get_gravity() * new_delta
-		
 			
 	# handle wall jump right
 	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move left") and is_on_wall_right():
@@ -92,10 +81,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -500
 		velocity.x = 800
 		
+	# Handle dash
+	if Input.is_action_just_pressed("dash") and dash_limit > 0:
+		is_dashing = true
+		dash_limit = 0
+		$dashTimer.start()
 		
-	
-
-	
+		# Saves the direction when the dash begins
+		if direction != 0:
+			dash_direction = direction
+		else:
+			dash_direction = -1.0 if animated_sprite.flip_h else 1.0
 	
 	# Play animations
 	if is_on_floor():
@@ -115,6 +111,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
+	
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
+	
+	
