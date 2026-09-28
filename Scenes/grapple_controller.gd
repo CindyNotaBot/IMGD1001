@@ -38,7 +38,7 @@ func launch():
 		target = ray.get_collision_point()
 		rope.show()
 		sfx_grapple.play()
-	
+
 func retreat():
 	launched = false
 	rope.hide()

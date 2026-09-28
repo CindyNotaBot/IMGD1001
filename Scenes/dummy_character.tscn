@@ -26,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mhdur")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 3.0
 }, {
@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nca14")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 5.0
 }]
@@ -43,6 +43,10 @@ animations = [{
 radius = 6.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_36xl2"]
+
+[sub_resource type="Curve" id="Curve_k4i18"]
+_data = [Vector2(0.21808508, 0.99120224), 0.0, 0.0, 0, 0, Vector2(0.99202126, 0.13782984), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="originalCharacter" type="CharacterBody2D" unique_id=930523685]
 z_index = 5
@@ -73,12 +77,13 @@ script = ExtResource("4_nca14")
 
 [node name="RayCast2D" type="RayCast2D" parent="GrappleController" unique_id=2055645887]
 target_position = Vector2(800, 0)
-collision_mask = 2
+collision_mask = 3
 
 [node name="Line2D" type="Line2D" parent="GrappleController" unique_id=851116293]
 points = PackedVector2Array(0, 0, 0, 0)
-width = 3.0
-default_color = Color(0, 0, 0, 1)
+width = 4.0
+width_curve = SubResource("Curve_k4i18")
+default_color = Color(0.023529412, 0.07450981, 0.019607844, 1)
 
 [node name="player_raycast_right" type="RayCast2D" parent="." unique_id=304808634]
 position = Vector2(0, -13)
