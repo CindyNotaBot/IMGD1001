@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://r54cxb6lxokm"
+path="res://.godot/imported/Entering the Abyss.ogg-bfb52ad116dfcec31ad1952f88525e45.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/music/Entering the Abyss.ogg"
+dest_files=["res://.godot/imported/Entering the Abyss.ogg-bfb52ad116dfcec31ad1952f88525e45.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=6.0
+bpm=0
+beat_count=0
+bar_beats=4

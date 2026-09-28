@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dy6bwf21ujsuv"]
+
+[ext_resource type="Texture2D" uid="uid://bgutgsqwfs0rx" path="res://Assets/character_sprite/idle1 (1).png" id="1_j5v4y"]
+[ext_resource type="Script" uid="uid://bpp0c41ihovmo" path="res://Scenes/original_character.gd" id="1_mhdur"]
+[ext_resource type="Texture2D" uid="uid://3woqy5jhhl7v" path="res://Assets/character_sprite/idle2.png" id="2_mhdur"]
+[ext_resource type="Script" uid="uid://ceegm00g5v0g2" path="res://Scenes/grapple_controller.gd" id="4_nca14"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5v4y"]
+atlas = ExtResource("1_j5v4y")
+region = Rect2(42, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhdur"]
+atlas = ExtResource("2_mhdur")
+region = Rect2(84, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nca14"]
+atlas = ExtResource("2_mhdur")
+region = Rect2(84, 0, 42, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhdur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5v4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhdur")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nca14")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nca14"]
+radius = 6.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_36xl2"]
+
+[node name="originalCharacter" type="CharacterBody2D" unique_id=930523685]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_mhdur")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=422566991]
+sprite_frames = SubResource("SpriteFrames_mhdur")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856022563]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_nca14")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=893464896]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=949119415]
+position = Vector2(1, 55)
+shape = SubResource("WorldBoundaryShape2D_36xl2")
+
+[node name="dashTimer" type="Timer" parent="." unique_id=772847661]
+wait_time = 0.2
+one_shot = true
+
+[node name="GrappleController" type="Node2D" parent="." unique_id=250007065]
+script = ExtResource("4_nca14")
+
+[node name="RayCast2D" type="RayCast2D" parent="GrappleController" unique_id=2055645887]
+target_position = Vector2(800, 0)
+collision_mask = 2
+
+[node name="Line2D" type="Line2D" parent="GrappleController" unique_id=851116293]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 3.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="player_raycast_right" type="RayCast2D" parent="." unique_id=304808634]
+position = Vector2(0, -13)
+target_position = Vector2(10, 0)
+
+[node name="player_raycast_left" type="RayCast2D" parent="." unique_id=1306795245]
+position = Vector2(0, -13)
+target_position = Vector2(-10, 0)
+
+[node name="wall_slide_right_raycast" type="RayCast2D" parent="." unique_id=1156515644]
+target_position = Vector2(10, 0)
+
+[node name="wall_slide_left_raycast" type="RayCast2D" parent="." unique_id=1267985423]
+target_position = Vector2(-9, 0)
+
+[connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
