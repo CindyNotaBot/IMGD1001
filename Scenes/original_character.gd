@@ -12,6 +12,7 @@ const DASH_SPEED = 450.0
 var dash_limit = 1
 var is_dashing = false
 var dash_direction = 1.0
+var wall_jumped = false
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gc := $GrappleController
@@ -43,8 +44,7 @@ func is_on_walls():
 		
 
 func _physics_process(delta: float) -> void:
-	
-	var new_delta = delta / .5
+	wall_jumped = false
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -73,19 +73,23 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		animated_sprite.flip_h = true
 		
-	# handle on wall
-	if is_on_walls() == true:
-		velocity = get_gravity() * new_delta
+	# handle on wall slide
+	if is_on_walls() and velocity.y > 0:
+		velocity.y = min(velocity.y, 100.0)
 			
 	# handle wall jump right
 	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move left") and is_on_wall_right():
-		velocity.y = -500
-		velocity.x = -800
+		velocity.y = -400
+		velocity.x = -350
+		wall_jumped = true
+		sfx_jump.play()
 		
 	# hadle wall jump left
 	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move right") and is_on_wall_left():
-		velocity.y = -500
-		velocity.x = 800
+		velocity.y = -400
+		velocity.x = 350
+		wall_jumped = true
+		sfx_jump.play()
 		
 	# Handle dash
 	if Input.is_action_just_pressed("dash") and dash_limit > 0:
@@ -111,7 +115,7 @@ func _physics_process(delta: float) -> void:
 	# Apply movement
 	if is_dashing:
 		velocity.x = dash_direction * DASH_SPEED
-	else:
+	elif not wall_jumped:
 		if direction:
 			velocity.x = direction * SPEED
 		else:
