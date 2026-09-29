@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://3woqy5jhhl7v" path="res://Assets/character_sprite/idle2.png" id="2_mhdur"]
 [ext_resource type="Texture2D" uid="uid://bfi72ureq62b4" path="res://Assets/character_sprite/punchattack.png" id="4_36xl2"]
 [ext_resource type="Script" uid="uid://ceegm00g5v0g2" path="res://Scenes/grapple_controller.gd" id="4_nca14"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ilfkq"]
-atlas = ExtResource("4_36xl2")
-region = Rect2(0, 0, 64, 43)
 [ext_resource type="AudioStream" uid="uid://fqum4xqa2x7c" path="res://Assets/sounds/sfx_jump.mp3" id="5_36xl2"]
 [ext_resource type="AudioStream" uid="uid://dbf3ju6flvph4" path="res://Assets/sounds/sfx_dash.mp3" id="6_ilfkq"]
 [ext_resource type="AudioStream" uid="uid://crj4wj8n0e3sc" path="res://Assets/sounds/sfx_grapple.mp3" id="7_dmore"]
 [ext_resource type="AudioStream" uid="uid://dbrltvsrid3yf" path="res://Assets/sounds/sfx_death.mp3" id="8_6nwlu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilfkq"]
+atlas = ExtResource("4_36xl2")
+region = Rect2(0, 0, 64, 43)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5v4y"]
 atlas = ExtResource("1_j5v4y")
