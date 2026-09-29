@@ -13,12 +13,17 @@ var dash_limit = 1
 var is_dashing = false
 var dash_direction = 1.0
 
+var can_input = true
+var is_attacking = false
+
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gc := $GrappleController
 @onready var player_raycast_right: RayCast2D = $player_raycast_right
 @onready var player_raycast_left: RayCast2D = $player_raycast_left
 @onready var wall_slide_left_raycast: RayCast2D = $wall_slide_left_raycast
 @onready var wall_slide_right_raycast: RayCast2D = $wall_slide_right_raycast
+@onready var attack_timer: Timer = $attack_timer
 
 func is_on_wall_left() -> bool:
 	if player_raycast_left.is_colliding() and not is_on_floor():
@@ -58,6 +63,12 @@ func _physics_process(delta: float) -> void:
 		jumpCounter = MAX_JUMPS
 		velocity.y = JUMP_VELOCITY
 		
+		# Handle attack
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		is_attacking= true
+		animated_sprite.play("attack")
+		attack_timer.start()
+		
 	# Get the input directions: -1, 0, 1
 	var direction := Input.get_axis("move left", "move right")
 	
@@ -94,7 +105,11 @@ func _physics_process(delta: float) -> void:
 			dash_direction = -1.0 if animated_sprite.flip_h else 1.0
 	
 	# Play animations
-	if is_on_floor():
+	if is_attacking:
+		pass
+		
+	# Play animations
+	elif is_on_floor():
 		dash_limit = 1
 		if direction == 0:
 			animated_sprite.play("idle")
@@ -116,3 +131,7 @@ func _on_dash_timer_timeout() -> void:
 	is_dashing = false
 	
 	
+
+
+func _on_attack_timer_timeout() -> void:
+	is_attacking = false
