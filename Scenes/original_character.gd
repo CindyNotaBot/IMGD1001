@@ -22,7 +22,6 @@ var dash_direction = 1.0
 
 @onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
 @onready var sfx_dash: AudioStreamPlayer2D = $sfx_dash
-@onready var sfx_death: AudioStreamPlayer2D = $sfx_death
 
 func is_on_wall_left() -> bool:
 	if player_raycast_left.is_colliding() and not is_on_floor():
