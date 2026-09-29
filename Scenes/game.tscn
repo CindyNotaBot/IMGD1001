@@ -5,11 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dmy15v62mc1ib" path="res://Scenes/killzone.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://dc5kw50vnc0ac" path="res://Scenes/boss_enemy.tscn" id="6_i6g32"]
 [ext_resource type="AudioStream" uid="uid://r54cxb6lxokm" path="res://Assets/music/Entering the Abyss.ogg" id="6_rfjv2"]
-[ext_resource type="Script" uid="uid://dc58w23se2uag" path="res://Scripts/music.gd" id="7_1phco"]
 [ext_resource type="Texture2D" uid="uid://de8xy77da8hcc" path="res://Assets/sprites/Tilesetv3-1.png v3.png" id="8_ldgsr"]
 [ext_resource type="FontFile" uid="uid://gjo4iyr2nd07" path="res://Assets/fonts/PixelOperator8.ttf" id="8_v158k"]
 [ext_resource type="Texture2D" uid="uid://7o1srg5g6q48" path="res://Assets/sprites/Tilesetv3-1.png v3-1.png armor.png" id="9_o5yvi"]
-[ext_resource type="PackedScene" uid="uid://da056qqp76e53" path="res://Scenes/music.tscn" id="10_ldgsr"]
 [ext_resource type="Texture2D" uid="uid://djj3r0pl1cfdw" path="res://Assets/sprites/Tilesetv3-1.png v3-1.png corner fix v3.png" id="10_o5yvi"]
 [ext_resource type="Texture2D" uid="uid://cdwqa6x55lgv7" path="res://Assets/sprites/world_tileset.png" id="10_rku1e"]
 [ext_resource type="PackedScene" uid="uid://dy6bwf21ujsuv" path="res://Scenes/dummy_character.tscn" id="11_o5yvi"]
@@ -2449,12 +2447,6 @@ shape = SubResource("WorldBoundaryShape2D_i6g32")
 [node name="Slime" parent="." unique_id=192784159 instance=ExtResource("6_i6g32")]
 position = Vector2(106, 17)
 
-[node name="Music" parent="." unique_id=283391999 instance=ExtResource("10_ldgsr")]
-stream = ExtResource("6_rfjv2")
-volume_db = 10.0
-parameters/looping = true
-script = ExtResource("7_1phco")
-
 [node name="dummyCharacter" parent="." unique_id=930523685 instance=ExtResource("11_o5yvi")]
 position = Vector2(288, 43)
 
@@ -2489,3 +2481,8 @@ position = Vector2(982, 57)
 
 [node name="CommonEnemy" parent="." unique_id=1068598476 instance=ExtResource("16_nnt18")]
 position = Vector2(159, 57)
+
+[node name="MusicNew" type="AudioStreamPlayer" parent="." unique_id=194817731]
+stream = ExtResource("6_rfjv2")
+autoplay = true
+bus = &"Music"
