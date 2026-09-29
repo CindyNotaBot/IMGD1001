@@ -25,6 +25,10 @@ var is_attacking = false
 @onready var wall_slide_right_raycast: RayCast2D = $wall_slide_right_raycast
 @onready var attack_timer: Timer = $attack_timer
 
+@onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
+@onready var sfx_dash: AudioStreamPlayer2D = $sfx_dash
+@onready var sfx_death: AudioStreamPlayer2D = $sfx_death
+
 func is_on_wall_left() -> bool:
 	if player_raycast_left.is_colliding() and not is_on_floor():
 		return true
@@ -56,12 +60,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and (is_on_floor() || gc.launched):
 		velocity.y += JUMP_VELOCITY
 		gc.retreat()
+		sfx_jump.play()
 	elif Input.is_action_just_pressed("jump") and jumpCounter != 0:
 		velocity.y += JUMP_VELOCITY
 		jumpCounter -= 1
+		sfx_jump.play()
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jumpCounter = MAX_JUMPS
 		velocity.y = JUMP_VELOCITY
+		sfx_jump.play()
 		
 		# Handle attack
 	if Input.is_action_just_pressed("attack") and not is_attacking:
@@ -97,6 +104,7 @@ func _physics_process(delta: float) -> void:
 		is_dashing = true
 		dash_limit = 0
 		$dashTimer.start()
+		sfx_dash.play()
 		
 		# Saves the direction when the dash begins
 		if direction != 0:

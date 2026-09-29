@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
-
+@onready var sfx_death: AudioStreamPlayer2D = $sfx_death
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "dummyCharacter":
@@ -18,8 +18,6 @@ func _on_body_entered(body: Node2D) -> void:
 			collision.queue_free()
 		
 		timer.start()
-
-
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1.0
