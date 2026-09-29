@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://bpp0c41ihovmo" path="res://Scenes/original_character.gd" id="1_mhdur"]
 [ext_resource type="Texture2D" uid="uid://3woqy5jhhl7v" path="res://Assets/character_sprite/idle2.png" id="2_mhdur"]
 [ext_resource type="Script" uid="uid://ceegm00g5v0g2" path="res://Scenes/grapple_controller.gd" id="4_nca14"]
+[ext_resource type="AudioStream" uid="uid://fqum4xqa2x7c" path="res://Assets/sounds/sfx_jump.mp3" id="5_36xl2"]
+[ext_resource type="AudioStream" uid="uid://dbf3ju6flvph4" path="res://Assets/sounds/sfx_dash.mp3" id="6_ilfkq"]
+[ext_resource type="AudioStream" uid="uid://crj4wj8n0e3sc" path="res://Assets/sounds/sfx_grapple.mp3" id="7_dmore"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5v4y"]
 atlas = ExtResource("1_j5v4y")
@@ -45,7 +48,7 @@ radius = 6.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_36xl2"]
 
 [sub_resource type="Curve" id="Curve_k4i18"]
-_data = [Vector2(0.21808508, 0.99120224), 0.0, 0.0, 0, 0, Vector2(0.99202126, 0.13782984), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.85923743), 0.0, 0.0, 0, 0, Vector2(0.96542555, 0.25219935), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="originalCharacter" type="CharacterBody2D" unique_id=930523685]
@@ -98,5 +101,16 @@ target_position = Vector2(10, 0)
 
 [node name="wall_slide_left_raycast" type="RayCast2D" parent="." unique_id=1267985423]
 target_position = Vector2(-9, 0)
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="." unique_id=1528830794]
+stream = ExtResource("5_36xl2")
+
+[node name="sfx_dash" type="AudioStreamPlayer2D" parent="." unique_id=190426539]
+stream = ExtResource("6_ilfkq")
+
+[node name="sfx_grapple" type="AudioStreamPlayer2D" parent="." unique_id=1026233743]
+stream = ExtResource("7_dmore")
+
+[node name="sfx_death" type="AudioStreamPlayer2D" parent="." unique_id=1432357835]
 
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]

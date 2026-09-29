@@ -1,9 +1,9 @@
 extends Node2D 
 
 @export var rest_length = 2.0
-@export var stiffness = 25.0
+@export var stiffness = 20.0
 @export var damping= 2.0
-@export var max_grapple_time = 1.25
+@export var max_grapple_time = 2.0
 
 @onready var player := get_parent()
 @onready var ray := $RayCast2D
@@ -32,13 +32,19 @@ func _process(delta):
 			handle_grapple(delta)
 		
 func launch():
-	if ray.is_colliding(): 
+	if ray.is_colliding():
+		var collider = ray.get_collider()
+		
+		# Grabs and pulls enemy towards player
+		if collider.is_in_group("enemy"):
+			return
+
 		launched = true
 		grapple_time = 0.0
 		target = ray.get_collision_point()
 		rope.show()
 		sfx_grapple.play()
-
+	
 func retreat():
 	launched = false
 	rope.hide()
