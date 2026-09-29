@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://fqum4xqa2x7c" path="res://Assets/sounds/sfx_jump.mp3" id="5_36xl2"]
 [ext_resource type="AudioStream" uid="uid://dbf3ju6flvph4" path="res://Assets/sounds/sfx_dash.mp3" id="6_ilfkq"]
 [ext_resource type="AudioStream" uid="uid://crj4wj8n0e3sc" path="res://Assets/sounds/sfx_grapple.mp3" id="7_dmore"]
+[ext_resource type="AudioStream" uid="uid://dbrltvsrid3yf" path="res://Assets/sounds/sfx_death.mp3" id="8_6nwlu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j5v4y"]
 atlas = ExtResource("1_j5v4y")
@@ -112,5 +113,6 @@ stream = ExtResource("6_ilfkq")
 stream = ExtResource("7_dmore")
 
 [node name="sfx_death" type="AudioStreamPlayer2D" parent="." unique_id=1432357835]
+stream = ExtResource("8_6nwlu")
 
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
