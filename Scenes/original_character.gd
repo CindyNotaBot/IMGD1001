@@ -41,12 +41,8 @@ func is_on_wall_right() -> bool:
 	else:
 		return false
 		
-func is_on_walls():
-	if wall_slide_left_raycast.is_colliding() or wall_slide_right_raycast.is_colliding() and not is_on_floor():
-		return true
-	else:
-		return false 
-		
+func is_on_walls() -> bool:
+	return (wall_slide_left_raycast.is_colliding() or wall_slide_right_raycast.is_colliding()) and not is_on_floor()	
 
 func _physics_process(delta: float) -> void:
 	wall_jumped = false
@@ -55,21 +51,42 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (is_on_floor() || gc.launched):
-		velocity.y += JUMP_VELOCITY
-		gc.retreat()
-		sfx_jump.play()
-	elif Input.is_action_just_pressed("jump") and jumpCounter != 0:
-		velocity.y += JUMP_VELOCITY
-		jumpCounter -= 1
-		sfx_jump.play()
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		jumpCounter = MAX_JUMPS
-		velocity.y = JUMP_VELOCITY
-		sfx_jump.play()
+	# Handle jump and wall jump
+	if Input.is_action_just_pressed("jump"):
 		
-		# Handle attack
+		# Wall jump right wall
+		if is_on_wall_right():
+			velocity.y = JUMP_VELOCITY
+			velocity.x = -350
+			wall_jumped = true
+			sfx_jump.play()
+
+		# Wall jump left wall
+		elif is_on_wall_left():
+			velocity.y = JUMP_VELOCITY
+			velocity.x = 350
+			wall_jumped = true
+			sfx_jump.play()
+
+		# Normal ground jump
+		elif is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			jumpCounter = MAX_JUMPS
+			sfx_jump.play()
+
+		# Jump while grappling
+		elif gc.launched:
+			velocity.y = JUMP_VELOCITY
+			gc.retreat()
+			sfx_jump.play()
+
+		# Jump in the air
+		elif jumpCounter > 0:
+			velocity.y = JUMP_VELOCITY
+			jumpCounter -= 1
+			sfx_jump.play()
+		
+	# Handle attack
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		is_attacking= true
 		animated_sprite.play("attack")
@@ -84,23 +101,9 @@ func _physics_process(delta: float) -> void:
 	elif direction < 0:
 		animated_sprite.flip_h = true
 		
-	# handle on wall slide
+	# Handle on wall slide
 	if is_on_walls() and velocity.y > 0:
 		velocity.y = min(velocity.y, 100.0)
-			
-	# handle wall jump right
-	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move left") and is_on_wall_right():
-		velocity.y = -400
-		velocity.x = -350
-		wall_jumped = true
-		sfx_jump.play()
-		
-	# hadle wall jump left
-	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("move right") and is_on_wall_left():
-		velocity.y = -400
-		velocity.x = 350
-		wall_jumped = true
-		sfx_jump.play()
 		
 	# Handle dash
 	if Input.is_action_just_pressed("dash") and dash_limit > 0:
