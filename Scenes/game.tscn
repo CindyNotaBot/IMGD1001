@@ -2502,3 +2502,6 @@ position = Vector2(609, -22)
 
 [node name="grap_hook_pickup" parent="." unique_id=935909413 instance=ExtResource("16_ewbju")]
 position = Vector2(774, -72)
+
+[node name="Health_vile2" parent="." unique_id=74285722 instance=ExtResource("17_85qyi")]
+position = Vector2(1408, 56)
