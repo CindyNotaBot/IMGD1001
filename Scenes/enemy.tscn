@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://buil4yopo0v2v" path="res://Scenes/enemy.gd" id="1_afpow"]
 [ext_resource type="Texture2D" uid="uid://da61wn86pcxgf" path="res://Assets/character_sprite/enemies.png" id="2_287tu"]
 [ext_resource type="PackedScene" uid="uid://dmy15v62mc1ib" path="res://Scenes/killzone.tscn" id="3_0830c"]
+[ext_resource type="Script" uid="uid://d7dj566dvkif" path="res://Scripts/chase_E_killzone.gd" id="4_287tu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghaa6"]
 atlas = ExtResource("2_287tu")
@@ -14,7 +15,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ghaa6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -38,8 +39,6 @@ frame_progress = 0.9716948
 position = Vector2(-2, 2)
 shape = SubResource("CircleShape2D_auwsv")
 
-[node name="Killzone" parent="." unique_id=1394821798 instance=ExtResource("3_0830c")]
-
 [node name="detection_area" type="Area2D" parent="." unique_id=1006862093]
 collision_layer = 2
 collision_mask = 2
@@ -49,6 +48,7 @@ position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_8uf12")
 
 [node name="Killzone2" parent="." unique_id=1413584131 instance=ExtResource("3_0830c")]
+script = ExtResource("4_287tu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone2" unique_id=2061712137]
 position = Vector2(-2, 2)
@@ -56,3 +56,5 @@ shape = SubResource("CircleShape2D_afpow")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+
+[editable path="Killzone2"]

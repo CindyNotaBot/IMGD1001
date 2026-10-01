@@ -1,4 +1,10 @@
+class_name Player
 extends CharacterBody2D
+
+const MAX_SHARDS = 8
+const FULL_HEART = 4
+static var health_piece = 0
+static var total_health_pieces = 0
 
 const BASE_SPEED = 200
 var SPEED = BASE_SPEED
@@ -13,6 +19,12 @@ var dash_limit = 1
 var is_dashing = false
 var dash_direction = 1.0
 var wall_jumped = false
+
+static var max_health = 3
+static var current_health = max_health
+static var can_double_jump = false
+static var can_wall_jump = false
+static var got_key = false
 
 var can_input = true
 var is_attacking = false
@@ -29,20 +41,44 @@ var is_attacking = false
 @onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
 @onready var sfx_dash: AudioStreamPlayer2D = $sfx_dash
 
+static func pickup_vile() -> void:
+	if health_piece < FULL_HEART:
+		health_piece += 1
+		print("Health viles collected: ")
+		print(health_piece)
+		total_health_pieces += 1
+		print("total health pieces")
+		print(total_health_pieces)
+
+		if health_piece == FULL_HEART:
+			print("Health viles collected: ")
+			print(health_piece)
+			print("Collected 4 viles, adding an extra heart")
+			health_piece = 0
+			Player.max_health += 1
+			Player.current_health = Player.max_health
+			print(Player.current_health)
+
+			if total_health_pieces == MAX_SHARDS:
+				print("All viles collected!")
+
 func is_on_wall_left() -> bool:
-	if player_raycast_left.is_colliding() and not is_on_floor():
+	if player_raycast_left.is_colliding() and not is_on_floor() and can_wall_jump:
 		return true
 	else:
 		return false
 
 func is_on_wall_right() -> bool:
-	if player_raycast_right.is_colliding() and not is_on_floor():
+	if player_raycast_right.is_colliding() and not is_on_floor() and can_wall_jump:
 		return true
 	else:
 		return false
 		
 func is_on_walls() -> bool:
-	return (wall_slide_left_raycast.is_colliding() or wall_slide_right_raycast.is_colliding()) and not is_on_floor()	
+	return ((wall_slide_left_raycast.is_colliding() or wall_slide_right_raycast.is_colliding())
+		and not is_on_floor()
+		and can_wall_jump
+	)
 
 func _physics_process(delta: float) -> void:
 	wall_jumped = false
@@ -80,8 +116,8 @@ func _physics_process(delta: float) -> void:
 			gc.retreat()
 			sfx_jump.play()
 
-		# Jump in the air
-		elif jumpCounter > 0:
+		# Double jump
+		elif jumpCounter > 0 and can_double_jump:
 			velocity.y = JUMP_VELOCITY
 			jumpCounter -= 1
 			sfx_jump.play()

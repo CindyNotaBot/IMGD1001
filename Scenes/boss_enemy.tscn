@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b1mto4dyg235q" path="res://Scripts/slime.gd" id="1_aiwxb"]
 [ext_resource type="PackedScene" uid="uid://dmy15v62mc1ib" path="res://Scenes/killzone.tscn" id="2_aiwxb"]
 [ext_resource type="Texture2D" uid="uid://d35oisgt5076r" path="res://Assets/character_sprite/boss_final.png" id="2_paq7w"]
+[ext_resource type="Script" uid="uid://pf0txild8cs8" path="res://Scripts/boss_killzone.gd" id="4_73776"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4si1"]
 atlas = ExtResource("2_paq7w")
@@ -35,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e388w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 4.0
 }]
@@ -53,6 +54,7 @@ autoplay = "default"
 frame_progress = 0.57777965
 
 [node name="Killzone" parent="AnimatedSprite2D" unique_id=1394821798 instance=ExtResource("2_aiwxb")]
+script = ExtResource("4_73776")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone" unique_id=957365018]
 position = Vector2(1, -11)
@@ -65,3 +67,5 @@ target_position = Vector2(10, -1)
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=760850295]
 position = Vector2(1, 12)
 target_position = Vector2(-10, -1)
+
+[editable path="AnimatedSprite2D/Killzone"]
