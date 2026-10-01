@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bowpp4sc1u8mr"
+path="res://.godot/imported/Real Shadows.ogg-d07946f57f37981782959925a1c7afb3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/music/Real Shadows.ogg"
+dest_files=["res://.godot/imported/Real Shadows.ogg-d07946f57f37981782959925a1c7afb3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
