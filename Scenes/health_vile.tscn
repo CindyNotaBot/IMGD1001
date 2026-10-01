@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://fyoqtpb8yr14"]
+
+[ext_resource type="Script" uid="uid://bg0276pqbk4n7" path="res://Scripts/health_vile.gd" id="1_baouw"]
+[ext_resource type="Texture2D" uid="uid://b1rkvm4yad5mm" path="res://Assets/sprites/Tilesetv3-1.png edited v2.png" id="1_mp3je"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_baouw"]
+atlas = ExtResource("1_mp3je")
+region = Rect2(128, 624, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbqex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_baouw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbqex"]
+size = Vector2(4, 9)
+
+[sub_resource type="Animation" id="Animation_baouw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cuq2x"]
+resource_name = "health_vile_pickup"
+length = 1.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mx2ya"]
+_data = {
+&"RESET": SubResource("Animation_baouw"),
+&"health_vile_pickup": SubResource("Animation_cuq2x")
+}
+
+[node name="Health_vile" type="Area2D" unique_id=812479389]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_baouw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=325359224]
+sprite_frames = SubResource("SpriteFrames_sbqex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=269567018]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_sbqex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=570300532]
+libraries/ = SubResource("AnimationLibrary_mx2ya")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

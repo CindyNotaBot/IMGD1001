@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bukb61ytovnmy"]
+
+[ext_resource type="Script" uid="uid://v7kopv23ubcp" path="res://Scripts/wall_jump_potion.gd" id="1_1pf01"]
+[ext_resource type="Texture2D" uid="uid://b1rkvm4yad5mm" path="res://Assets/sprites/Tilesetv3-1.png edited v2.png" id="2_3po4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlcog"]
+atlas = ExtResource("2_3po4o")
+region = Rect2(144, 640, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbqex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlcog")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sbqex"]
+radius = 6.0
+height = 22.0
+
+[sub_resource type="Animation" id="Animation_1pf01"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3po4o"]
+resource_name = "wj_pickup"
+length = 1.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tlcog"]
+_data = {
+&"RESET": SubResource("Animation_1pf01"),
+&"wj_pickup": SubResource("Animation_3po4o")
+}
+
+[node name="wall_jump_potion" type="Area2D" unique_id=404919548]
+collision_mask = 2
+script = ExtResource("1_1pf01")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1530359929]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sbqex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=271052629]
+shape = SubResource("CapsuleShape2D_sbqex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1073881298]
+libraries/ = SubResource("AnimationLibrary_tlcog")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

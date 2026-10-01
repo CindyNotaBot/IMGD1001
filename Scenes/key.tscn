@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b7asc58yiw2y7"]
+
+[ext_resource type="Script" uid="uid://c34dq2twrd68x" path="res://Scripts/key.gd" id="1_udxw8"]
+[ext_resource type="Texture2D" uid="uid://c5cg3trabcib8" path="res://Assets/sprites/Pixel Art Key Pack - V2/Key 4 - Silver.png" id="1_ut0wq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udxw8"]
+atlas = ExtResource("1_ut0wq")
+region = Rect2(0, 0, 14, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbqex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udxw8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbqex"]
+size = Vector2(15, 48)
+
+[sub_resource type="Animation" id="Animation_udxw8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_brn0f"]
+resource_name = "key_aquired"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lc1k7"]
+_data = {
+&"RESET": SubResource("Animation_udxw8"),
+&"key_aquired": SubResource("Animation_brn0f")
+}
+
+[node name="Key" type="Area2D" unique_id=857669424]
+scale = Vector2(0.5, 0.5)
+collision_mask = 2
+script = ExtResource("1_udxw8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=756672706]
+sprite_frames = SubResource("SpriteFrames_sbqex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=499830345]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sbqex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=132948252]
+libraries/ = SubResource("AnimationLibrary_lc1k7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
