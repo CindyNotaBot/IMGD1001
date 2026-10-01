@@ -123,7 +123,44 @@ The game allows players to dash.
 There game environment and map layout is changed. 
 
 
-"
+Sprint 4 - September 23, 2026
+Below, are the listed things of what we imrpoved for the fourth version of the game: 
+
+New enemy and boss character designs were implemented.
+
+Chasing enemy movement was introduced.
+
+A new level design was created.
+
+A soundtrack was incorporated into the game.
+
+Double jumping was implemented as a new player ability.
+
+
+Sprint 5 - September 30, 2026
+Below, are the listed things of what we imrpoved for the fifth version of the game: 
+
+The grappling hook mechanics and design were improved.
+
+Sound effects were implemented for jumping, dashing, grappling, and player death.
+
+Ability pickups were introduced for the grappling hook, double jump, and wall jump.
+
+The grappling hook and other abilities must now be unlocked by collecting their respective pickups.
+
+Bugs with the wall jump mechanic were fixed to improve functionality and consistency.
+
+A player health system was introduced.
+
+Health vial collectibles were added to the level.
+
+Common and chasing enemies can now damage the player -1.
+
+Boss attacks now deal -2 damage to the player.
+
+A key collectible was introduced.
+
+The level design was updated."
 fit_content = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1643809051]
