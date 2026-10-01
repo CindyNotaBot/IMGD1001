@@ -24,6 +24,7 @@ static var max_health = 3
 static var current_health = max_health
 static var can_double_jump = false
 static var can_wall_jump = false
+static var can_grapple = false
 static var got_key = false
 
 var can_input = true

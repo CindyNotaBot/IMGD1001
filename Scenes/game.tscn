@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c0jhuexavfjw7" path="res://Scenes/double_jump_potion.tscn" id="14_nb51f"]
 [ext_resource type="PackedScene" uid="uid://cd4hcqg84bk4j" path="res://Scenes/enemy.tscn" id="15_nb51f"]
 [ext_resource type="PackedScene" uid="uid://bukb61ytovnmy" path="res://Scenes/wall_jump_potion.tscn" id="15_nnt18"]
+[ext_resource type="PackedScene" uid="uid://b301lhdlhaoci" path="res://Scenes/grap_hook_pickup.tscn" id="16_ewbju"]
 [ext_resource type="PackedScene" uid="uid://bxg5fuhr0v3is" path="res://Scenes/common_enemy.tscn" id="16_nnt18"]
 [ext_resource type="PackedScene" uid="uid://fyoqtpb8yr14" path="res://Scenes/health_vile.tscn" id="17_85qyi"]
 
@@ -2498,3 +2499,6 @@ position = Vector2(1049, -137)
 
 [node name="Health_vile" parent="." unique_id=812479389 instance=ExtResource("17_85qyi")]
 position = Vector2(609, -22)
+
+[node name="grap_hook_pickup" parent="." unique_id=935909413 instance=ExtResource("16_ewbju")]
+position = Vector2(774, -72)
