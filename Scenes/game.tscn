@@ -2389,41 +2389,40 @@ layout_mode = 2
 
 [node name="HPLabel" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=463399638]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 37
 text = "HP:"
 
 [node name="Heart1" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=1858178251]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 37
 text = "♥"
 
 [node name="Heart2" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=816188980]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 37
 text = "♥"
 
 [node name="Heart3" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=1759502603]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 37
 text = "♥"
 
 [node name="Heart4" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=668795354]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 37
 text = "♡"
 
 [node name="Heart5" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=1989865064]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 37
 text = "♡"
 
 [node name="VialProgress" type="Label" parent="HealthUI/VBoxContainer" unique_id=391621423]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Vials: 0 / 4"
 
-[node name="Health_vile3" parent="." unique_id=1653222303 instance=ExtResource("17_85qyi")]
-position = Vector2(597, -308)
-
-[node name="Health_vile4" parent="." unique_id=243782617 instance=ExtResource("17_85qyi")]
-position = Vector2(779, -277)
+[node name="KeyIndicator" type="Label" parent="HealthUI/VBoxContainer" unique_id=1250164593]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Key: Not Collected"
