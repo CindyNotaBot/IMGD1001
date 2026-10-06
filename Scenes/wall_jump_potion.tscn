@@ -123,6 +123,7 @@ libraries/ = SubResource("AnimationLibrary_tlcog")
 
 [node name="PickupLabel" type="Label" parent="." unique_id=493725794]
 visible = false
+z_index = 10
 offset_left = -57.0
 offset_top = -41.0
 offset_right = 63.0

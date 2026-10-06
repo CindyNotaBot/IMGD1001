@@ -124,6 +124,7 @@ libraries/ = SubResource("AnimationLibrary_4q3gp")
 
 [node name="PickupLabel" type="Label" parent="." unique_id=1318664106]
 visible = false
+z_index = 10
 offset_left = -69.0
 offset_top = -33.0
 offset_right = 83.0

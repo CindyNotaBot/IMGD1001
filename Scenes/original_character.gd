@@ -43,6 +43,9 @@ var is_attacking = false
 @onready var sfx_dash: AudioStreamPlayer2D = $sfx_dash
 
 static func pickup_vile() -> void:
+	if current_health < max_health:
+		current_health += 1
+		
 	if health_piece < FULL_HEART:
 		health_piece += 1
 		print("Health viles collected: ")
