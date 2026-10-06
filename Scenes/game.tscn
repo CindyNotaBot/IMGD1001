@@ -2342,7 +2342,7 @@ e for dash,
 left click for grappling hook (once picked up)"
 
 [node name="chasing_enemy" parent="." unique_id=1439146250 instance=ExtResource("15_nb51f")]
-position = Vector2(1083, -279)
+position = Vector2(1083, -283)
 
 [node name="CommonEnemy" parent="." unique_id=1068598476 instance=ExtResource("16_nnt18")]
 position = Vector2(330, -281)
