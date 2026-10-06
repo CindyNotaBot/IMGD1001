@@ -18,7 +18,7 @@ var grapple_time = 0.0
 func _process(delta):
 	ray.look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("grapple") and Player.can_grapple:
+	if Input.is_action_just_pressed("grapple") and player.can_grapple:
 		launch()
 	if Input.is_action_just_released("grapple"):
 		retreat()
@@ -34,7 +34,12 @@ func _process(delta):
 func launch():
 	if ray.is_colliding():
 		var collider = ray.get_collider()
+		var collision_point = ray.get_collision_point()
 		
+		# does not allow to grapple if it's off-screen
+		if not is_point_in_view(collision_point):
+			return
+			
 		# Grabs and pulls enemy towards player
 		if collider.is_in_group("enemy"):
 			return
@@ -93,3 +98,20 @@ func update_rope():
 		point += perpendicular * wave * wave_strength
 		
 		rope.add_point(point)
+
+func is_point_in_view(global_point: Vector2) -> bool:
+	var camera = get_viewport().get_camera_2d()
+	if not camera:
+		var screen_rect = get_viewport().get_visible_rect()
+		return screen_rect.has_point(global_point)
+		
+	var screen_center = camera.get_screen_center_position()
+	var viewport_size = get_viewport().get_visible_rect().size / camera.zoom
+	
+	# Calculate the boundaries of the camera in the world
+	var half_size = viewport_size * 0.5
+	var min_bound = screen_center - half_size
+	var max_bound = screen_center + half_size
+	
+	return global_point.x >= min_bound.x and global_point.x <= max_bound.x and \
+		   global_point.y >= min_bound.y and global_point.y <= max_bound.y
