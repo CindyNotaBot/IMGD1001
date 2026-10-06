@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fyoqtpb8yr14"]
 
-[ext_resource type="Script" uid="uid://bg0276pqbk4n7" path="res://Scripts/health_vile.gd" id="1_baouw"]
+[ext_resource type="Script" uid="uid://b0nbariukrodg" path="res://Scripts/health_vile.gd" id="1_baouw"]
 [ext_resource type="Texture2D" uid="uid://b1rkvm4yad5mm" path="res://Assets/sprites/Tilesetv3-1.png edited v2.png" id="1_mp3je"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_baouw"]
@@ -120,5 +120,15 @@ shape = SubResource("RectangleShape2D_sbqex")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=570300532]
 libraries/ = SubResource("AnimationLibrary_mx2ya")
+
+[node name="PickupLabel" type="Label" parent="." unique_id=1766251838]
+visible = false
+z_index = 10
+offset_left = -28.5
+offset_top = -16.5
+offset_right = 34.0
+offset_bottom = -5.5
+theme_override_font_sizes/font_size = 6
+text = "Health Vial Collected!"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

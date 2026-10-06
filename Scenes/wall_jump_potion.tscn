@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bukb61ytovnmy"]
 
-[ext_resource type="Script" uid="uid://v7kopv23ubcp" path="res://Scripts/wall_jump_potion.gd" id="1_1pf01"]
+[ext_resource type="Script" uid="uid://dde68gc1xplc5" path="res://Scripts/wall_jump_potion.gd" id="1_1pf01"]
 [ext_resource type="Texture2D" uid="uid://b1rkvm4yad5mm" path="res://Assets/sprites/Tilesetv3-1.png edited v2.png" id="2_3po4o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlcog"]
@@ -120,5 +120,14 @@ shape = SubResource("CapsuleShape2D_sbqex")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1073881298]
 libraries/ = SubResource("AnimationLibrary_tlcog")
+
+[node name="PickupLabel" type="Label" parent="." unique_id=493725794]
+visible = false
+offset_left = -57.0
+offset_top = -41.0
+offset_right = 63.0
+offset_bottom = -24.0
+theme_override_font_sizes/font_size = 12
+text = "Wall Jump Unlocked!"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

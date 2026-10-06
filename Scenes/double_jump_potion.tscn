@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0jhuexavfjw7"]
 
-[ext_resource type="Script" uid="uid://qhtrpmqbphv7" path="res://Scripts/double_jump_potion.gd" id="1_8d552"]
+[ext_resource type="Script" uid="uid://cjw4xpxwcsuu7" path="res://Scripts/double_jump_potion.gd" id="1_8d552"]
 [ext_resource type="Texture2D" uid="uid://b1rkvm4yad5mm" path="res://Assets/sprites/Tilesetv3-1.png edited v2.png" id="2_30fkt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wflbb"]
@@ -120,5 +120,15 @@ shape = SubResource("CapsuleShape2D_sbqex")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1831426420]
 libraries/ = SubResource("AnimationLibrary_wflbb")
+
+[node name="PickupLabel" type="Label" parent="." unique_id=1917961715]
+visible = false
+z_index = 10
+offset_left = -32.0
+offset_top = -20.0
+offset_right = 36.5
+offset_bottom = -5.5
+theme_override_font_sizes/font_size = 7
+text = "Double Jump Unlocked!"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

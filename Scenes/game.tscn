@@ -2325,9 +2325,9 @@ position = Vector2(0, -15)
 zoom = Vector2(2.5, 2.5)
 
 [node name="Label" type="Label" parent="." unique_id=252142862]
-offset_left = 61.0
+offset_left = 38.0
 offset_top = -374.0
-offset_right = 288.0
+offset_right = 324.0
 offset_bottom = -333.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.6901961)
 theme_override_fonts/font = ExtResource("8_v158k")
@@ -2335,7 +2335,7 @@ theme_override_font_sizes/font_size = 8
 text = "w and space bar for jump
 a for left, d for right, 
 e for dash,
-left click for grappling hook"
+left click for grappling hook (once picked up)"
 
 [node name="chasing_enemy" parent="." unique_id=1439146250 instance=ExtResource("15_nb51f")]
 position = Vector2(1083, -279)
@@ -2349,19 +2349,19 @@ autoplay = true
 bus = &"Music"
 
 [node name="double_jump_potion" parent="." unique_id=929558201 instance=ExtResource("14_nb51f")]
-position = Vector2(615, -308)
+position = Vector2(1156, -468)
 
 [node name="wall_jump_potion" parent="." unique_id=404919548 instance=ExtResource("15_nnt18")]
-position = Vector2(1150, -473)
+position = Vector2(3114, -773)
 
 [node name="Health_vile" parent="." unique_id=812479389 instance=ExtResource("17_85qyi")]
-position = Vector2(710, -358)
+position = Vector2(715, -356)
 
 [node name="grap_hook_pickup" parent="." unique_id=935909413 instance=ExtResource("16_ewbju")]
-position = Vector2(875, -408)
+position = Vector2(3192, -1034)
 
 [node name="Health_vile2" parent="." unique_id=74285722 instance=ExtResource("17_85qyi")]
-position = Vector2(1509, -280)
+position = Vector2(1509, -278)
 
 [node name="LevelMap" type="TileMap" parent="." unique_id=1136817679]
 position = Vector2(67, -279)
