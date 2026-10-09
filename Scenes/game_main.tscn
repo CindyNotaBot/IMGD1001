@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://daekcj4bbib2h" path="res://Assets/sprites/grapple indicator.png" id="26_o3k8f"]
 [ext_resource type="Texture2D" uid="uid://cermushkg13ef" path="res://Assets/sprites/spikes.png" id="27_ooay0"]
 [ext_resource type="Texture2D" uid="uid://djj3r0pl1cfdw" path="res://Assets/sprites/Tilesetv3-1.png v3-1.png corner fix v3.png" id="28_mgb3v"]
+[ext_resource type="Script" uid="uid://cg3pbvbu2n4ti" path="res://Scenes/health_ui.gd" id="29_6ykxa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i6g32"]
 
@@ -2606,6 +2607,58 @@ layer_2/tile_data = PackedInt32Array(-1245050, 458752, 11, -1245049, 524288, 11,
 position = Vector2(67, -279)
 tile_map_data = PackedByteArray("AADnAO7/AQAAAAAAAADSAO7/AQAAAAAAAADTAO7/AQAAAAAAAADUAO7/AQAAAAAAAADVAO7/AQAAAAAAAADWAOz/AQAAAAAAAADXAOz/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_34otr")
+
+[node name="HealthUI" type="CanvasLayer" parent="." unique_id=1414655384]
+script = ExtResource("29_6ykxa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HealthUI" unique_id=1501757840]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 316.0
+offset_bottom = 144.0
+
+[node name="HeartsContainer" type="HBoxContainer" parent="HealthUI/VBoxContainer" unique_id=1276812945]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=594088358]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "HP:"
+
+[node name="Heart1" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=121033811]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "♥"
+
+[node name="Heart2" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=1337809186]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "♥"
+
+[node name="Heart3" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=1599885663]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "♥"
+
+[node name="Heart4" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=910639418]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "♡"
+
+[node name="Heart5" type="Label" parent="HealthUI/VBoxContainer/HeartsContainer" unique_id=2016544557]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "♡"
+
+[node name="VialProgress" type="Label" parent="HealthUI/VBoxContainer" unique_id=1194061149]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Vials: 0 / 4"
+
+[node name="KeyIndicator" type="Label" parent="HealthUI/VBoxContainer" unique_id=166379195]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Key: Not Collected"
 
 [editable path="Doors/door"]
 [editable path="Music_zones/Music_zone2"]
