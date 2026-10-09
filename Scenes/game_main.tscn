@@ -2714,6 +2714,9 @@ shape = SubResource("RectangleShape2D_whb1y")
 [node name="Checkpoint" parent="Checkpoints" unique_id=83286201 instance=ExtResource("20_1pqj0")]
 position = Vector2(3394, -790)
 
+[node name="Checkpoint8" parent="Checkpoints" unique_id=455944961 instance=ExtResource("20_1pqj0")]
+position = Vector2(2964, -3206)
+
 [node name="Checkpoint2" parent="Checkpoints" unique_id=802915766 instance=ExtResource("20_1pqj0")]
 position = Vector2(6943, -6757)
 
