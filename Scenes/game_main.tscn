@@ -2486,7 +2486,7 @@ position = Vector2(7172, -14481)
 position = Vector2(13959, -2602)
 
 [node name="dummyCharacter" parent="." unique_id=930523685 instance=ExtResource("6_tspwr")]
-position = Vector2(4143, -1031)
+position = Vector2(135, -241)
 
 [node name="Camera2D" type="Camera2D" parent="dummyCharacter" unique_id=147813927]
 position = Vector2(0, -15)
