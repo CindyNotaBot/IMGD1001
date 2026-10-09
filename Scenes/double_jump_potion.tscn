@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0jhuexavfjw7"]
 
-[ext_resource type="Script" uid="uid://qhtrpmqbphv7" path="res://Scripts/double_jump_potion.gd" id="1_8d552"]
+[ext_resource type="Script" uid="uid://cjw4xpxwcsuu7" path="res://Scripts/double_jump_potion.gd" id="1_8d552"]
 [ext_resource type="Texture2D" uid="uid://b1rkvm4yad5mm" path="res://Assets/sprites/Tilesetv3-1.png edited v2.png" id="2_30fkt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wflbb"]

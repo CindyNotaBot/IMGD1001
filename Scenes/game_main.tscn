@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cermushkg13ef" path="res://Assets/sprites/spikes.png" id="27_ooay0"]
 [ext_resource type="Texture2D" uid="uid://djj3r0pl1cfdw" path="res://Assets/sprites/Tilesetv3-1.png v3-1.png corner fix v3.png" id="28_mgb3v"]
 [ext_resource type="Script" uid="uid://cg3pbvbu2n4ti" path="res://Scenes/health_ui.gd" id="29_6ykxa"]
+[ext_resource type="Script" uid="uid://cj6knkykpheox" path="res://Scenes/pickup_desciprtion.gd" id="30_7x4lm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i6g32"]
 
@@ -2398,6 +2399,17 @@ custom_data_layer_0/name = "spike_hazard"
 custom_data_layer_0/type = 4
 sources/1 = SubResource("TileSetAtlasSource_d32yf")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hujs1"]
+bg_color = Color(0.0627451, 0.0627451, 0.09411765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="Game" type="Node2D" unique_id=1971848457]
 
 [node name="GameManager" type="Node" parent="." unique_id=633957606]
@@ -2797,6 +2809,76 @@ text = "Vials: 0 / 4"
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Key: Not Collected"
+
+[node name="double_jump_potion" parent="." unique_id=1039152817 instance=ExtResource("12_qk1o0")]
+position = Vector2(615, -308)
+
+[node name="wall_jump_potion" parent="." unique_id=216876076 instance=ExtResource("13_ep5a1")]
+position = Vector2(1150, -473)
+
+[node name="Health_vile" parent="." unique_id=2033380551 instance=ExtResource("11_kwklr")]
+position = Vector2(710, -358)
+
+[node name="grap_hook_pickup" parent="." unique_id=1389570683 instance=ExtResource("14_sx5lm")]
+position = Vector2(875, -408)
+
+[node name="Health_vile2" parent="." unique_id=1069792417 instance=ExtResource("11_kwklr")]
+position = Vector2(1509, -280)
+
+[node name="PickupUI" type="CanvasLayer" parent="." unique_id=205780919]
+
+[node name="UIContainer" type="Control" parent="PickupUI" unique_id=513641740]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PickupDescription" type="Panel" parent="PickupUI/UIContainer" unique_id=1533797069]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -539.0
+offset_top = -1340.0
+offset_right = -89.0
+offset_bottom = -1250.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hujs1")
+script = ExtResource("30_7x4lm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PickupUI/UIContainer/PickupDescription" unique_id=216413332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -10.0
+offset_right = 11.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="PickupUI/UIContainer/PickupDescription/VBoxContainer" unique_id=638353875]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.72156864, 0.47843137, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "DOUBLE JUMP UNLOCKED!"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="PickupUI/UIContainer/PickupDescription/VBoxContainer" unique_id=204436281]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Press jump again while in the air to double jump.
+"
+vertical_alignment = 1
 
 [editable path="Doors/door"]
 [editable path="Doors/door2"]
