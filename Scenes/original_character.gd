@@ -121,7 +121,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor() and not is_dashing:
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta /1.2
 		coyote_timer -= delta
 	else:
 		coyote_timer = COYOTE_TIME
