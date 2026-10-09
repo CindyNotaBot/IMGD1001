@@ -89,10 +89,12 @@ theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_0ylr1")
 text = "Version Notes: 
 
-Sprint 1- September 2, 2026
+
+Sprint 1 - September 2, 2026
 This is the first version of the game. 
 
-We have included UI/UX designs that aims to improve user experience.
+
+We have included UI/UX designs that aim to improve user experience.
 
 The first of which is a title screen (Main Menu) with 3 Buttons: \"Start game\", \"Version Notes\", and \"Credits\".
 
@@ -106,8 +108,8 @@ We additionally added new sfx sound during the main menu called \"Skye Cuillin\"
 http:/creativecommons.org/licenses/by/4.0/ 
 
 
-Sprint 2-September 9, 2026
-Below, are the listed things of what we change for the second version of the game: 
+Sprint 2 - September 9, 2026
+Below, are the listed things of what we changed for the second version of the game: 
 
 The credits scene is now autoscroll and has an exit option for improved user experience. 
 
@@ -118,8 +120,8 @@ The game now has a navigation menu.
 The WPI splash screen is now scaled for all screen types.
 
 
-Sprint 3- September 16, 2026
-Below, are the listed things of what we imrpoved for the second version of the game: 
+Sprint 3 - September 16, 2026
+Below, are the listed things of what we imrproved for the second version of the game: 
 
 The game has updated the character asset to our own original character with animation.
 
@@ -127,11 +129,11 @@ The game added a grappling hook weapon.
 
 The game allows players to dash.
 
-There game environment and map layout is changed. 
+The game environment and map layout is changed. 
 
 
 Sprint 4 - September 23, 2026
-Below, are the listed things of what we imrpoved for the fourth version of the game: 
+Below, are the listed things of what we imrproved for the fourth version of the game: 
 
 New enemy and boss character designs were implemented.
 
@@ -145,11 +147,9 @@ Double jumping was implemented as a new player ability.
 
 
 Sprint 5 - September 30, 2026
-Below, are the listed things of what we imrpoved for the fifth version of the game: 
+Below, are the listed things of what we imrproved for the fifth version of the game: 
 
 The grappling hook mechanics and design were improved.
-
-Sound effects were implemented for jumping, dashing, grappling, and player death.
 
 Ability pickups were introduced for the grappling hook, double jump, and wall jump.
 
@@ -161,13 +161,52 @@ A player health system was introduced.
 
 Health vial collectibles were added to the level.
 
-Common and chasing enemies can now damage the player -1.
+Common and chasing enemies can now deal 1 damage to the player.
 
-Boss attacks now deal -2 damage to the player.
+Boss attacks now deal deal 2 damage to the player.
 
 A key collectible was introduced.
 
-The level design was updated."
+The level design was updated.
+
+Sound effects were implemented for jumping, dashing, grappling, and player death.
+
+Sound Effects Credits:
+The following sound effects were used in the game and are credited to their respective creators from Pixabay.
+
+Jump SFX: Sound Effect by Aryan Raikundalia from Pixabay. https://pixabay.com/sound-effects/531048/
+
+Dash SFX: Sound Effect by Advik Singh from Pixabay. https://pixabay.com/sound-effects/380651/
+
+Grappling Hook SFX: Sound Effect by LE0Nsamplepack from Pixabay. https://pixabay.com/sound-effects/506395/
+
+Player Death SFX: Sound Effect by Universfield from Pixabay. https://pixabay.com/sound-effects/352287/
+
+
+Sprint 6 - October 9, 2026 
+Below are the listed things of what we improved for the sixth version of the game:
+
+New main menu artwork was added.
+
+The in-game UI was improved with updated fonts, banners, and layout.
+
+The main menu was redesigned with updated buttons and layout.
+
+A new dash effect was added to improve player movement visuals.
+
+A new soundtrack was added to the game.
+
+Spikes now deal damage to the player when touched.
+
+Players now respawn at the last safe tile after touching spikes.
+
+A fade-in and fade-out effect was added when the player takes damage.
+
+Pickup popups were improved with updated descriptions and banners.
+
+The grappling hook mechanics were improved and bugs were fixed.
+
+A new level design was implemented."
 fit_content = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1643809051]
