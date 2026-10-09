@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvlh0jq14p37h"
+path="res://.godot/imported/Breaking Through.ogg-ab81c4fddb631f32a326c97ab5bbe1f7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/music/Breaking Through.ogg"
+dest_files=["res://.godot/imported/Breaking Through.ogg-ab81c4fddb631f32a326c97ab5bbe1f7.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=12.8
+bpm=0.0
+beat_count=0
+bar_beats=4

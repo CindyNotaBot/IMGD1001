@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://n57uqk7av0qo"]
+
+[ext_resource type="Texture2D" uid="uid://c2jxscdmcjp3y" path="res://Assets/character_sprite/menu_art.png" id="1_0t5xw"]
+[ext_resource type="FontFile" uid="uid://c0o58gyy3m3h" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="2_nfm0g"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1610614443]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1040862905]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0t5xw")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=910231622]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -904.0
+offset_top = 233.0
+offset_right = 154.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_fonts/font = ExtResource("2_nfm0g")
+theme_override_font_sizes/font_size = 60
+text = "LOADING..."
+horizontal_alignment = 1
+vertical_alignment = 1
