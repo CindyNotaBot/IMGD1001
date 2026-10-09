@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bf2gupobclswi"]
+
+[ext_resource type="Script" uid="uid://bkwwrwrkm3wxl" path="res://Scripts/checkpoint.gd" id="1_2cwi7"]
+[ext_resource type="Texture2D" uid="uid://b1rkvm4yad5mm" path="res://Assets/sprites/Tilesetv3-1.png edited v2.png" id="1_lbcco"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cwi7"]
+atlas = ExtResource("1_lbcco")
+region = Rect2(0, 416, 62, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbqex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cwi7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1pff"]
+atlas = ExtResource("1_lbcco")
+region = Rect2(112, 0, 16, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hrwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1pff")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e75gc"]
+atlas = ExtResource("1_lbcco")
+region = Rect2(33, 598, 29, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qy52e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e75gc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hrwj"]
+size = Vector2(68, 31)
+
+[node name="Checkpoint" type="Area2D" unique_id=83286201]
+collision_mask = 2
+script = ExtResource("1_2cwi7")
+
+[node name="Armor" type="AnimatedSprite2D" parent="." unique_id=266406223]
+sprite_frames = SubResource("SpriteFrames_sbqex")
+
+[node name="Torch" type="AnimatedSprite2D" parent="." unique_id=68439267]
+position = Vector2(-31, 0)
+sprite_frames = SubResource("SpriteFrames_8hrwj")
+
+[node name="Torch2" type="AnimatedSprite2D" parent="." unique_id=932866790]
+position = Vector2(31, 0)
+sprite_frames = SubResource("SpriteFrames_8hrwj")
+flip_h = true
+
+[node name="Table" type="AnimatedSprite2D" parent="." unique_id=1684448426]
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_qy52e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2043042539]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_8hrwj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="ready" from="." to="." method="_on_ready"]

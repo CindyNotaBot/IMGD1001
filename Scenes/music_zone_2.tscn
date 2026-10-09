@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b353me1vj8rde"]
+
+[ext_resource type="Script" uid="uid://baa8vj64itpxj" path="res://Scripts/music_zone.gd" id="1_6fmsf"]
+[ext_resource type="AudioStream" uid="uid://r54cxb6lxokm" path="res://Assets/music/Entering the Abyss.ogg" id="1_jbyox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fmsf"]
+size = Vector2(7818, 2611)
+
+[node name="Music_zone2" type="Area2D" unique_id=62079842]
+script = ExtResource("1_6fmsf")
+
+[node name="MusicNew" type="AudioStreamPlayer" parent="." unique_id=1896003242]
+stream = ExtResource("1_jbyox")
+bus = &"Music"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1908465233]
+position = Vector2(1739, 2952.5)
+shape = SubResource("RectangleShape2D_6fmsf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
