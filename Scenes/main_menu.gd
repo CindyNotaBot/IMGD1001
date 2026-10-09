@@ -11,7 +11,7 @@ func _process(_delta: float) -> void:
 
 # When start button is pressed screen is changed to the game screen
 func _on_start_game_pressed():
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	get_tree().change_scene_to_file("res://Scenes/game_main.tscn")
 
 # When version notes button is pressed screen is changed to version notes screen
 func _on_version_notes_pressed():
