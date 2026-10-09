@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7asc58yiw2y7"]
 
-[ext_resource type="Script" uid="uid://c34dq2twrd68x" path="res://Scripts/key.gd" id="1_udxw8"]
+[ext_resource type="Script" uid="uid://bck16rcxq5c8w" path="res://Scripts/key.gd" id="1_udxw8"]
 [ext_resource type="Texture2D" uid="uid://c5cg3trabcib8" path="res://Assets/sprites/Pixel Art Key Pack - V2/Key 4 - Silver.png" id="1_ut0wq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_udxw8"]
@@ -119,5 +119,12 @@ shape = SubResource("RectangleShape2D_sbqex")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=132948252]
 libraries/ = SubResource("AnimationLibrary_lc1k7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=793349402]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=421133178]
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1126403573]
+texture = ExtResource("1_ut0wq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

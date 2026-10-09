@@ -1914,16 +1914,24 @@ texture = ExtResource("28_mgb3v")
 6:16/0 = 0
 7:16/0 = 0
 8:16/0 = 0
+8:16/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 3.165512, 8, 3.165512, 8, 8, -8, 8)
 9:16/0 = 0
+9:16/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 3.165512, 8, 3.165512, 8, 8, -8, 8)
 10:16/0 = 0
+10:16/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 3.165512, 8, 3.165512, 8, 8, -8, 8)
 11:16/0 = 0
 12:16/0 = 0
 13:16/0 = 0
 0:17/0 = 0
+0:17/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 3.165512, 8, 3.165512, 8, 8, -8, 8)
 1:17/0 = 0
+1:17/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 3.165512, 8, 3.165512, 8, 8, -8, 8)
 2:17/0 = 0
+2:17/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 3.165512, 8, 3.165512, 8, 8, -8, 8)
 3:17/0 = 0
+3:17/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 3.165512, 8, 3.165512, 8, 8, -8, 8)
 4:17/0 = 0
+4:17/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 3.165512, 8, 3.165512, 8, 8, -8, 8)
 5:17/0 = 0
 6:17/0 = 0
 7:17/0 = 0
@@ -2431,6 +2439,24 @@ autowrap_mode = 2
 
 [node name="Enemies" type="Node" parent="." unique_id=1663895734]
 
+[node name="chasing_enemy7" parent="Enemies" unique_id=1642514681 instance=ExtResource("3_7x4lm")]
+position = Vector2(5537, -749)
+
+[node name="chasing_enemy6" parent="Enemies" unique_id=438713103 instance=ExtResource("3_7x4lm")]
+position = Vector2(2733, -583)
+
+[node name="chasing_enemy5" parent="Enemies" unique_id=1260355508 instance=ExtResource("3_7x4lm")]
+position = Vector2(2398, -584)
+
+[node name="chasing_enemy4" parent="Enemies" unique_id=1966159269 instance=ExtResource("3_7x4lm")]
+position = Vector2(1096, -280)
+
+[node name="CommonEnemy9" parent="Enemies" unique_id=560344374 instance=ExtResource("4_ga1gc")]
+position = Vector2(2919, -1947)
+
+[node name="CommonEnemy8" parent="Enemies" unique_id=2029087268 instance=ExtResource("4_ga1gc")]
+position = Vector2(450, -280)
+
 [node name="chasing_enemy" parent="Enemies" unique_id=1439146250 instance=ExtResource("3_7x4lm")]
 position = Vector2(4926, -7255)
 
@@ -2489,13 +2515,12 @@ theme_override_fonts/font = ExtResource("8_xcbk5")
 theme_override_font_sizes/font_size = 8
 text = "w and space bar for jump
 a for left, d for right, 
-e for dash,
-left click for grappling hook"
+e for dash"
 
 [node name="Keys" type="Node" parent="." unique_id=103315258]
 
-[node name="Key" parent="Keys" unique_id=857669424 instance=ExtResource("9_oy377")]
-position = Vector2(1216, -6051)
+[node name="Key" parent="Keys" unique_id=1823063052 instance=ExtResource("9_oy377")]
+position = Vector2(1528, -6142)
 
 [node name="Key2" parent="Keys" unique_id=261932139 instance=ExtResource("9_oy377")]
 position = Vector2(10166, -10130)
@@ -2811,16 +2836,16 @@ theme_override_font_sizes/font_size = 35
 text = "Key: Not Collected"
 
 [node name="double_jump_potion" parent="." unique_id=1039152817 instance=ExtResource("12_qk1o0")]
-position = Vector2(615, -308)
+position = Vector2(714, -356)
 
 [node name="wall_jump_potion" parent="." unique_id=216876076 instance=ExtResource("13_ep5a1")]
-position = Vector2(1150, -473)
+position = Vector2(3115, -615)
 
 [node name="Health_vile" parent="." unique_id=2033380551 instance=ExtResource("11_kwklr")]
-position = Vector2(710, -358)
+position = Vector2(1315, -473)
 
 [node name="grap_hook_pickup" parent="." unique_id=1389570683 instance=ExtResource("14_sx5lm")]
-position = Vector2(875, -408)
+position = Vector2(3261, -1034)
 
 [node name="Health_vile2" parent="." unique_id=1069792417 instance=ExtResource("11_kwklr")]
 position = Vector2(1509, -280)
@@ -2879,6 +2904,9 @@ theme_override_font_sizes/font_size = 20
 text = "Press jump again while in the air to double jump.
 "
 vertical_alignment = 1
+
+[node name="Key" parent="." unique_id=857669424 instance=ExtResource("9_oy377")]
+position = Vector2(1062, -441)
 
 [editable path="Doors/door"]
 [editable path="Doors/door2"]
