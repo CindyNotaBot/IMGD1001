@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://gf8xkihk8cus"]
+
+[ext_resource type="Script" uid="uid://cbtwxsgi3w0hx" path="res://Scripts/credits.gd" id="1_ccovl"]
+[ext_resource type="FontFile" uid="uid://cvare1s2ji0p2" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_gryuy"]
+[ext_resource type="FontFile" uid="uid://djyy3tmd8phi6" path="res://Assets/fonts/PixelOperator8.ttf" id="2_ccovl"]
+
+[node name="Credits" type="Control" unique_id=37567946]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccovl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=797804453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.13725491, 0.13725491, 1)
+
+[node name="CreditsContainer" type="VBoxContainer" parent="." unique_id=1306557979]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="Title" type="Label" parent="CreditsContainer" unique_id=1200508233]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_fonts/font = ExtResource("1_gryuy")
+theme_override_font_sizes/font_size = 40
+text = "Metriodvania game"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Role" type="Label" parent="CreditsContainer" unique_id=262786337]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 25
+text = "Developers:"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Name" type="Label" parent="CreditsContainer" unique_id=1791855669]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 20
+text = "Cindy, Angela, Jaimin and Cristian"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Role2" type="Label" parent="CreditsContainer" unique_id=51853056]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 25
+text = "Artists:"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Name2" type="Label" parent="CreditsContainer" unique_id=1392429769]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 20
+text = "Cindy and Angela"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Role3" type="Label" parent="CreditsContainer" unique_id=886825479]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 25
+text = "Programmers:"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Name3" type="Label" parent="CreditsContainer" unique_id=488125022]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 20
+text = "Cindy, Angela, Jaimin and Cristian"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Role4" type="Label" parent="CreditsContainer" unique_id=762378068]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 25
+text = "Level designer"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Name4" type="Label" parent="CreditsContainer" unique_id=1033279078]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 20
+text = "Jaimin"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Role5" type="Label" parent="CreditsContainer" unique_id=274495742]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 25
+text = "Narrative Designer"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Name5" type="Label" parent="CreditsContainer" unique_id=2142908818]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 20
+text = "Jaimin"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Role6" type="Label" parent="CreditsContainer" unique_id=2132160116]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 25
+text = "Music/Audio"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Name6" type="Label" parent="CreditsContainer" unique_id=2033215275]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 20
+text = "Angela and Cristian"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Role7" type="Label" parent="CreditsContainer" unique_id=1672878963]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 25
+text = "In Association with:"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Name7" type="Label" parent="CreditsContainer" unique_id=1897290730]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ccovl")
+theme_override_font_sizes/font_size = 20
+text = "WPI'S IMGD Class"
+horizontal_alignment = 1
+autowrap_mode = 2
