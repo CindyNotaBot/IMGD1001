@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://lkfc2nydbf54"]
+
+[ext_resource type="Script" uid="uid://bg8rrvqxwegkx" path="res://node_2d.gd" id="1_8pobm"]
+[ext_resource type="Texture2D" uid="uid://b8h8ofp3hpfei" path="res://Assets/sprites/shadow.png" id="2_rxdv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhi63"]
+atlas = ExtResource("2_rxdv1")
+region = Rect2(0, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxmrs"]
+atlas = ExtResource("2_rxdv1")
+region = Rect2(42, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twoae"]
+atlas = ExtResource("2_rxdv1")
+region = Rect2(84, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lfe7"]
+atlas = ExtResource("2_rxdv1")
+region = Rect2(126, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt8rj"]
+atlas = ExtResource("2_rxdv1")
+region = Rect2(168, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1j64"]
+atlas = ExtResource("2_rxdv1")
+region = Rect2(210, 0, 42, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_adsvs"]
+animations = [{
+"frames": [{
+"duration": 2.21,
+"texture": SubResource("AtlasTexture_bhi63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxmrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxmrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twoae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twoae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lfe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lfe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt8rj")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_s1j64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1j64")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adsvs"]
+radius = 110.2225
+
+[node name="shadow" type="Node2D" unique_id=2132198278]
+script = ExtResource("1_8pobm")
+
+[node name="disappear" type="AnimatedSprite2D" parent="." unique_id=1515077025]
+sprite_frames = SubResource("SpriteFrames_adsvs")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=340407958]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1080920079]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("CircleShape2D_adsvs")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="animation_finished" from="disappear" to="." method="_on_disappear_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
