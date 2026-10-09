@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://dy6bwf21ujsuv"]
+
+[ext_resource type="Texture2D" uid="uid://bgutgsqwfs0rx" path="res://Assets/character_sprite/idle1 (1).png" id="1_j5v4y"]
+[ext_resource type="Script" uid="uid://bpp0c41ihovmo" path="res://Scenes/original_character.gd" id="1_mhdur"]
+[ext_resource type="Texture2D" uid="uid://3woqy5jhhl7v" path="res://Assets/character_sprite/idle2.png" id="2_mhdur"]
+[ext_resource type="Texture2D" uid="uid://bfi72ureq62b4" path="res://Assets/character_sprite/punchattack.png" id="4_36xl2"]
+[ext_resource type="Script" uid="uid://ceegm00g5v0g2" path="res://Scenes/grapple_controller.gd" id="4_nca14"]
+[ext_resource type="AudioStream" uid="uid://fqum4xqa2x7c" path="res://Assets/sounds/sfx_jump.mp3" id="5_36xl2"]
+[ext_resource type="AudioStream" uid="uid://dbf3ju6flvph4" path="res://Assets/sounds/sfx_dash.mp3" id="6_ilfkq"]
+[ext_resource type="AudioStream" uid="uid://crj4wj8n0e3sc" path="res://Assets/sounds/sfx_grapple.mp3" id="7_dmore"]
+[ext_resource type="AudioStream" uid="uid://dbrltvsrid3yf" path="res://Assets/sounds/sfx_death.mp3" id="8_6nwlu"]
+
+[sub_resource type="Animation" id="Animation_tv2qp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jn75k"]
+resource_name = "damage_taken"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dndvp"]
+_data = {
+&"RESET": SubResource("Animation_tv2qp"),
+&"damage_taken": SubResource("Animation_jn75k")
+}
+
+[sub_resource type="Gradient" id="Gradient_sbqex"]
+offsets = PackedFloat32Array(0, 0.5170068, 0.9727891)
+colors = PackedColorArray(1, 0.39154497, 0.99028975, 1, 1, 0.70132595, 0.9487433, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilfkq"]
+atlas = ExtResource("4_36xl2")
+region = Rect2(0, 0, 64, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5v4y"]
+atlas = ExtResource("1_j5v4y")
+region = Rect2(42, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhdur"]
+atlas = ExtResource("2_mhdur")
+region = Rect2(84, 0, 42, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nca14"]
+atlas = ExtResource("2_mhdur")
+region = Rect2(84, 0, 42, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhdur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilfkq")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5v4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhdur")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nca14")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nca14"]
+radius = 6.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_36xl2"]
+
+[sub_resource type="Curve" id="Curve_k4i18"]
+_data = [Vector2(0, 0.85923743), 0.0, 0.0, 0, 0, Vector2(0.96542555, 0.25219935), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="originalCharacter" type="CharacterBody2D" unique_id=930523685]
+z_index = 5
+collision_layer = 2
+script = ExtResource("1_mhdur")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1534347679]
+libraries/ = SubResource("AnimationLibrary_dndvp")
+
+[node name="dash_particles" type="CPUParticles2D" parent="." unique_id=1866258532]
+emitting = false
+amount = 20
+texture = ExtResource("2_mhdur")
+lifetime = 0.3
+direction = Vector2(-1, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_sbqex")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=422566991]
+sprite_frames = SubResource("SpriteFrames_mhdur")
+animation = &"jump"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856022563]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_nca14")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=893464896]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=949119415]
+position = Vector2(1, 55)
+shape = SubResource("WorldBoundaryShape2D_36xl2")
+
+[node name="dashTimer" type="Timer" parent="." unique_id=772847661]
+wait_time = 0.2
+one_shot = true
+
+[node name="GrappleController" type="Node2D" parent="." unique_id=250007065]
+script = ExtResource("4_nca14")
+
+[node name="RayCast2D" type="RayCast2D" parent="GrappleController" unique_id=2055645887]
+target_position = Vector2(192, 0)
+collision_mask = 3
+
+[node name="Line2D" type="Line2D" parent="GrappleController" unique_id=851116293]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 4.0
+width_curve = SubResource("Curve_k4i18")
+default_color = Color(0.023529412, 0.07450981, 0.019607844, 1)
+
+[node name="player_raycast_right" type="RayCast2D" parent="." unique_id=304808634]
+position = Vector2(0, -13)
+target_position = Vector2(10, 0)
+
+[node name="player_raycast_left" type="RayCast2D" parent="." unique_id=1306795245]
+position = Vector2(0, -13)
+target_position = Vector2(-10, 0)
+
+[node name="wall_slide_right_raycast" type="RayCast2D" parent="." unique_id=1156515644]
+target_position = Vector2(10, 0)
+
+[node name="wall_slide_left_raycast" type="RayCast2D" parent="." unique_id=1267985423]
+target_position = Vector2(-9, 0)
+
+[node name="attack_timer" type="Timer" parent="." unique_id=1829935621]
+wait_time = 0.2
+one_shot = true
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="." unique_id=1528830794]
+stream = ExtResource("5_36xl2")
+volume_db = -20.0
+
+[node name="sfx_dash" type="AudioStreamPlayer2D" parent="." unique_id=190426539]
+stream = ExtResource("6_ilfkq")
+volume_db = -3.0
+
+[node name="sfx_grapple" type="AudioStreamPlayer2D" parent="." unique_id=1026233743]
+stream = ExtResource("7_dmore")
+volume_db = -15.0
+
+[node name="sfx_death" type="AudioStreamPlayer2D" parent="." unique_id=1432357835]
+stream = ExtResource("8_6nwlu")
+volume_db = -15.0
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
